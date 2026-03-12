@@ -1,523 +1,516 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
-    <title>Hulquene Roberto Ngola - Portfólio Profissional</title>
-    <meta
-      name="description"
-      content="Portfólio profissional de Hulquene Roberto Ngola, desenvolvedor full-stack, engenheiro de software e fundador da Okutonda Tech."
-    />
-    <meta
-      name="keywords"
-      content="Hulquene Ngola, desenvolvedor full-stack, PHP, Java, React, DevOps, Okutonda, portfólio, software sob medida, engenharia de software, backend, frontend"
-    />
-    <meta name="author" content="Hulquene Roberto Ngola" />
+  <title>Hulquene Roberto Ngola — Dev Full Stack & Tech Lead</title>
+  <meta name="description" content="Portfólio de Hulquene Roberto Ngola — desenvolvedor full-stack com 4+ anos de experiência, especialista em PHP, Java, Python, DevOps e Tech Lead. Angola, Luanda." />
+  <meta name="keywords" content="Hulquene Ngola, desenvolvedor full-stack, PHP, Java, React, DevOps, Docker, Tech Lead, Angola, Luanda" />
+  <meta name="author" content="Hulquene Roberto Ngola" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hulquene.github.io/portfolio" />
 
-    <!-- Open Graph (Facebook, LinkedIn, etc) -->
-    <meta property="og:title" content="Portfólio - Hulquene Roberto Ngola" />
-    <meta
-      property="og:description"
-      content="Conheça o portfólio de Hulquene Roberto Ngola, desenvolvedor full-stack e fundador da Okutonda Tech. Soluções em PHP, Java, React, e DevOps."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hulquene.github.io/portfolio" />
-    <meta
-      property="og:image"
-      content="https://hulquene.github.io/portfolio/images/preview.png"
-    />
+  <meta property="og:title" content="Hulquene Roberto Ngola — Dev Full Stack & Tech Lead" />
+  <meta property="og:description" content="Desenvolvedor full-stack com 4+ anos de experiência em PHP, Java, Python e DevOps." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hulquene.github.io/portfolio" />
+  <meta property="og:image" content="images/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Portfólio - Hulquene Roberto Ngola" />
-    <meta
-      name="twitter:description"
-      content="Desenvolvedor full-stack com experiência em PHP, Java, React e DevOps. Fundador da Okutonda Tech. Explore meus projetos."
-    />
-    <meta
-      name="twitter:image"
-      content="https://hulquene.github.io/portfolio/images/preview.png"
-    />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 
-    <!-- SEO Técnicos -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://hulquene.github.io/portfolio" />
+  <!-- CDN Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+  <!-- CDN Icons (Phosphor) -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/unicons.css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="css/tooplate-style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <!-- Robots -->
-    <meta name="robots" content="index, follow" />
+<body>
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://hulquene.github.io/portfolio" />
-    <!-- Substitua pela URL correta -->
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
-    <!-- Manifest (opcional para PWA) -->
-    <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-name">HRN<span>.</span></div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loader-bar"></div>
+    </div>
+    <div class="loader-pct" id="loader-pct">0%</div>
+  </div>
 
-    <!-- Copyright -->
-    <meta
-      name="copyright"
-      content="© 2025 Hulquene Kenny. Todos os direitos reservados."
-    />
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo">HRN<span class="dot">.</span></a>
 
-    <!-- Segurança básica -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
-    />
-  </head>
+      <!-- Desktop links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
 
-  <body>
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
-      <div class="container">
-        <!-- <a class="navbar-brand" href="index.html"
-          ><i class="uil uil-user"></i> Hulquene</a
-        > -->
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="images/logo.png"
-            alt="Logo de Hulquene"
-            style="height: 50px"
-          />
-          Hulquene R. Ngola
-        </a>
+      <a href="docs/curriculo-hulquene-v1.pdf" class="nav-cta" download>
+        <i class="ph ph-download-simple"></i> Currículo
+      </a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <!-- Mobile hamburger (lines only, no icon) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a href="#about" class="nav-link">
-                <span data-hover="Sobre">Sobre</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#project" class="nav-link">
-                <span data-hover="Projetos">Projetos</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#resume" class="nav-link">
-                <span data-hover="Resumo">Resumo</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">
-                <span data-hover="Contato">Contato</span>
-              </a>
-            </li>
-          </ul>
+  <!-- ══ HERO ════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
 
-          <ul class="navbar-nav ml-lg-auto">
-            <div class="ml-lg-4">
-              <div
-                class="color-mode d-lg-flex justify-content-center align-items-center"
-              >
-                <i class="color-mode-icon"></i>
-                Color mode
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- ABOUT -->
-    <section
-      class="about full-screen d-lg-flex justify-content-center align-items-center"
-      id="about"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-            <div class="about-text">
-              <small class="small-text"
-                >Bem-vindo ao
-                <span class="mobile-block">meu portfólio online!</span></small
-              >
-              <h1 class="animated animated-text">
-                <span class="mr-2">Olá, eu sou</span>
-                <div class="animated-info">
-                  <span class="animated-item">Hulquene R. Ngola</span>
-                  <span class="animated-item">Dev Full Stack</span>
-                  <span class="animated-item">Engenheiro Informático</span>
-                </div>
-              </h1>
-
-              <p>
-                Sou apaixonado por tecnologia e desenvolvimento de software.
-                Crio soluções eficientes e sob medida em PHP, Java, Python e
-                React, com foco em performance e qualidade.
-              </p>
-
-              <div class="custom-btn-group mt-4">
-                <a
-                  href="docs/curriculo-hulquene-v1.pdf"
-                  class="btn mr-lg-2 custom-btn"
-                  download
-                  ><i class="uil uil-file-alt"></i> Baixar Currículo</a
-                >
-                <a
-                  href="#contact"
-                  class="btn custom-btn custom-btn-bg custom-btn-link"
-                  >Solicitar orçamento</a
-                >
-              </div>
-            </div>
+    <div class="container">
+      <div class="hero-body">
+        <div class="hero-text">
+          <div class="hero-eyebrow">
+            <i class="ph ph-map-pin"></i> Angola, Luanda — Disponível para projetos
           </div>
 
-          <div class="col-lg-5 col-md-12 col-12">
-            <div class="about-image svg">
-              <img
-                src="images/undraw/img1.png"
-                class="img-fluid"
-                alt="svg image"
-              />
-            </div>
+          <h1 class="hero-h1">
+            <span class="line">Hulquene</span>
+            <span class="line">Roberto</span>
+            <span class="line">Ngola</span>
+          </h1>
+
+          <div class="hero-chips">
+            <span class="hero-chip">Dev Full Stack</span>
+            <span class="hero-chip">DevOps Engineer</span>
+            <span class="hero-chip">Tech Lead</span>
+            <span class="hero-chip">4+ Anos</span>
+            <span class="hero-chip">Okutonda Tech</span>
+          </div>
+
+          <p class="hero-desc">
+            Desenvolvimento de sistemas <strong>escaláveis e de alta qualidade</strong>.
+            Especialista em PHP, Java, Python e React — com foco em performance,
+            segurança e boas práticas de engenharia de software.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-fill">
+              Ver projetos <i class="ph ph-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Falar comigo
+            </a>
+          </div>
+        </div>
+
+        <!-- Stats (hidden on mobile) -->
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-n"><span data-count="4" data-suffix="+">4+</span></div>
+            <div class="stat-l">Anos de<br>experiência</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-n"><span data-count="10" data-suffix="+">10+</span></div>
+            <div class="stat-l">Projetos<br>entregues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-n"><span data-count="5" data-suffix="+">5+</span></div>
+            <div class="stat-l">Linguagens<br>dominadas</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- PROJECTS -->
-    <section class="project py-5" id="project">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-11 text-center mx-auto col-12">
-            <div class="col-lg-8 mx-auto">
-              <h2>Projetos</h2>
-              <p class="mt-3">
-                Tive a oportunidade de participar ativamente e desenvolver
-                soluções reais em diversos projetos, aplicando minhas
-                habilidades em software sob medida e sistemas web.
-              </p>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ═══════════════════════════════════════════════════ -->
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <div class="section-eyebrow">Sobre mim</div>
+      <h2 class="section-title">Quem sou eu</h2>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <p class="reveal">
+            Sou <strong>desenvolvedor pleno</strong> com mais de 4 anos de experiência em desenvolvimento
+            full-stack e práticas de DevOps. Tenho domínio de tecnologias e ferramentas modernas,
+            com paixão por criar soluções que são não apenas funcionais, mas também
+            <strong>robustas, escaláveis e alinhadas às necessidades do negócio</strong>.
+          </p>
+          <p class="reveal reveal-d1">
+            Atualmente estou a concluir a minha formação em <strong>Engenharia Informática</strong>
+            pela Universidade Católica de Angola (UCAN), unindo a prática profissional com uma
+            base teórica sólida. Meu objetivo é migrar gradualmente para áreas de
+            <strong>liderança técnica e gestão de projetos</strong>.
+          </p>
+
+          <div class="about-tags-section reveal reveal-d2">
+            <span class="tags-label">// Linguagens</span>
+            <div class="tag-row">
+              <span class="tag">PHP</span><span class="tag">Python</span>
+              <span class="tag">Java SE/EE</span><span class="tag">Dart/Flutter</span>
+              <span class="tag">JavaScript</span><span class="tag">Go</span>
             </div>
+            <span class="tags-label">// Frameworks & Libs</span>
+            <div class="tag-row">
+              <span class="tag">Laravel</span><span class="tag">CodeIgniter</span>
+              <span class="tag">Spring Boot</span><span class="tag">Django</span>
+              <span class="tag">React JS</span><span class="tag">Node.js</span>
+              <span class="tag">Flutter</span>
+            </div>
+            <span class="tags-label">// DevOps & Cloud</span>
+            <div class="tag-row">
+              <span class="tag">Docker</span><span class="tag">CI/CD</span>
+              <span class="tag">GitHub Actions</span><span class="tag">VPS/CPanel</span>
+              <span class="tag">AWS básico</span><span class="tag">RabbitMQ</span>
+              <span class="tag">Redis</span>
+            </div>
+            <span class="tags-label">// Banco de Dados</span>
+            <div class="tag-row">
+              <span class="tag">MySQL</span><span class="tag">PostgreSQL</span>
+              <span class="tag">SQLite</span><span class="tag">Redis</span>
+            </div>
+          </div>
 
-            <div class="owl-carousel owl-theme">
-              <div class="item">
-                <div class="project-info">
-                  <img
-                    src="images/project/project-image01.png"
-                    class="img-fluid"
-                    alt="project image"
-                  />
-                </div>
-              </div>
-
-              <div class="item">
-                <div class="project-info">
-                  <img
-                    src="images/project/project-image02.png"
-                    class="img-fluid"
-                    alt="project image"
-                  />
-                </div>
-              </div>
-
-              <div class="item">
-                <div class="project-info">
-                  <img
-                    src="images/project/project-image03.png"
-                    class="img-fluid"
-                    alt="project image"
-                  />
-                </div>
-              </div>
-
-              <!-- <div class="item">
-                <div class="project-info">
-                  <img
-                    src="images/project/project-image04.png"
-                    class="img-fluid"
-                    alt="project image"
-                  />
-                </div>
-              </div>
-
-              <div class="item">
-                <div class="project-info">
-                  <img
-                    src="images/project/project-image05.png"
-                    class="img-fluid"
-                    alt="project image"
-                  />
-                </div>
-              </div> -->
+          <div class="bars reveal reveal-d3">
+            <span class="tags-label" style="margin-top:2rem;display:block">// Proficiência técnica</span>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-name">PHP / Laravel</span><span class="bar-pct">90%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="90"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-name">Docker / DevOps</span><span class="bar-pct">85%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="85"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-name">Java / Spring Boot</span><span class="bar-pct">80%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="80"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-name">Python / Django</span><span class="bar-pct">75%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="75"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-header"><span class="bar-name">Flutter / Dart</span><span class="bar-pct">70%</span></div>
+              <div class="bar-track"><div class="bar-fill" data-w="70"></div></div>
             </div>
           </div>
         </div>
+
+        <div class="about-visual reveal reveal-d2">
+          <div class="about-frame">
+            <img src="images/undraw/img1.png" alt="Hulquene Roberto Ngola" loading="lazy" />
+            <div class="about-frame-overlay"></div>
+            <div class="about-frame-badge"><i class="ph ph-map-pin"></i> Luanda, Angola</div>
+          </div>
+          <div class="about-deco"></div>
+          <div class="about-deco-2"></div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FEATURES -->
-    <section
-      class="resume py-5 d-lg-flex justify-content-center align-items-center"
-      id="resume"
-    >
-      <div class="container">
-        <div class="row">
-          <!-- EXPERIÊNCIAS -->
-          <div class="col-lg-6 col-12">
-            <h2 class="mb-4">Experiências</h2>
+  <!-- ══ EXPERIENCE ══════════════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Trajetória</div>
+      <h2 class="section-title">Experiência & Formação</h2>
 
+      <div class="exp-grid">
+        <!-- Col esq -->
+        <div class="reveal">
+          <div class="exp-col-head">Experiência Profissional</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-year">2022 — Atual</div>
+              <div class="tl-company">ElengeAfrika Lda</div>
+              <div class="tl-role">Tech Lead / Dev Sênior</div>
+              <div class="tl-desc">Liderança técnica, distribuição de tarefas, mentoria de equipe, revisão de código e boas práticas em projetos PHP, Java e Python. Contato direto com clientes e stakeholders.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2024 — 2025</div>
+              <div class="tl-company">Freelancer — Petabyte</div>
+              <div class="tl-role">DevOps & Backend Laravel</div>
+              <div class="tl-desc">Containers Docker, pipelines CI/CD com GitHub Actions, APIs REST com Laravel Passport, integração de APIs externas e suporte na definição de arquitetura de software.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2022 — 2023</div>
+              <div class="tl-company">ElengeAfrika Lda</div>
+              <div class="tl-role">DevOps Engineer</div>
+              <div class="tl-desc">Criação e gestão de ambientes Docker Compose, pipelines CI/CD automatizados, deploy em VPS/CPanel e controle de versões com GitHub Actions.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2021 — 2022</div>
+              <div class="tl-company">ElengeAfrika Lda</div>
+              <div class="tl-role">Backend Developer</div>
+              <div class="tl-desc">Manutenção de sistemas em Python, Java e Go. Refatoração de código, correção de bugs críticos, otimização de APIs e documentação técnica.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">2020 — 2021</div>
+              <div class="tl-company">Freelancer</div>
+              <div class="tl-role">Desenvolvedor Web</div>
+              <div class="tl-desc">Módulos com CodeIgniter e Laravel, APIs RESTful, integração com sistemas externos e otimização de bancos de dados.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col dir -->
+        <div>
+          <div class="reveal">
+            <div class="exp-col-head">Formação Académica</div>
             <div class="timeline">
-              <div class="timeline-wrapper">
-                <div class="timeline-yr">
-                  <span>2023</span>
-                </div>
-                <div class="timeline-info">
-                  <h3>
-                    <span>Tech Lead / Desenvolvedor Sênior</span
-                    ><small>Okutonda Tech</small>
-                  </h3>
-                  <p>
-                    Liderança técnica, distribuição de tarefas, mentoria de
-                    equipe, revisão de código e implementação de boas práticas
-                    em projetos PHP, Java e Python. Participação em decisões
-                    técnicas e contato com clientes e stakeholders.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-wrapper">
-                <div class="timeline-yr">
-                  <span>2022</span>
-                </div>
-                <div class="timeline-info">
-                  <h3>
-                    <span>DevOps Engineer</span
-                    ><small>Projetos com Docker & GitHub Actions</small>
-                  </h3>
-                  <p>
-                    Criação e gerenciamento de ambientes com Docker, pipelines
-                    CI/CD, deploy automatizado e controle de versões com GitHub
-                    Actions.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-wrapper">
-                <div class="timeline-yr">
-                  <span>2021</span>
-                </div>
-                <div class="timeline-info">
-                  <h3>
-                    <span>Backend Developer</span
-                    ><small>Projetos com Python, Java & Go</small>
-                  </h3>
-                  <p>
-                    Manutenção de sistemas, refatoração de código, correção de
-                    bugs e otimização de APIs. Apoio na documentação técnica e
-                    melhorias de desempenho.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-wrapper">
-                <div class="timeline-yr">
-                  <span>2020</span>
-                </div>
-                <div class="timeline-info">
-                  <h3>
-                    <span>Desenvolvedor Web</span><small>Freelancer</small>
-                  </h3>
-                  <p>
-                    Criação de módulos com CodeIgniter e Laravel,
-                    desenvolvimento de APIs RESTful, integração com sistemas
-                    externos e bancos de dados otimizados.
-                  </p>
-                </div>
+              <div class="tl-item">
+                <div class="tl-year">Em andamento — 2025</div>
+                <div class="tl-company">UCAN — Universidade Católica de Angola</div>
+                <div class="tl-role">Engenharia Informática</div>
+                <div class="tl-desc">4º Ano da Licenciatura, com foco em desenvolvimento de software, redes de computadores, banco de dados e engenharia de requisitos.</div>
               </div>
             </div>
           </div>
 
-          <!-- FORMAÇÃO ORIGINAL OU SEÇÃO FUTURA -->
-          <div class="col-lg-6 col-12">
-            <h2 class="mb-4 mobile-mt-2">Educations</h2>
+          <div class="reveal reveal-d2" style="margin-top:3rem">
+            <div class="exp-col-head">Certificações</div>
             <div class="timeline">
-              <div class="timeline-wrapper">
-                <div class="timeline-yr">
-                  <span>2025</span>
-                </div>
-                <div class="timeline-info">
-                  <h3>
-                    <span>Engenharia Informática</span
-                    ><small>Universidade Católica de Angola (UCAN)</small>
-                  </h3>
-                  <p>
-                    Bacharelado em andamento, com foco em desenvolvimento de
-                    software, redes, banco de dados e engenharia de requisitos.
-                  </p>
-                </div>
+              <div class="tl-item">
+                <div class="tl-company">DIO</div>
+                <div class="tl-role">Bootcamp Java & Angular</div>
+                <div class="tl-desc">Spring Boot, Fundamentos de Java, Git & GitHub, Maven e Gradle, Desenvolvimento Full Stack.</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-company">Fatec / Huawei & Santander Open Academy</div>
+                <div class="tl-role">Python — Módulos Básico e Avançado</div>
+                <div class="tl-desc">Estruturas de dados, algoritmos, automação e desenvolvimento com Django.</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-company">LinkedIn Learning</div>
+                <div class="tl-role">Gestão de Projetos & Estruturas de Dados</div>
+                <div class="tl-desc">Fundamentos de Gestão de Projetos: Integração e Fundamentos de Programação.</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 mr-lg-5 col-12">
-            <div class="google-map w-100">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7885.388624641325!2d13.251802300000008!3d-8.814761499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sao!4v1750326207540!5m2!1spt-PT!2sao"
-                width="400"
-                height="300"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+  <!-- ══ PROJECTS ════════════════════════════════════════════════ -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <div class="section-eyebrow">Portfólio</div>
+      <h2 class="section-title">Projetos em destaque</h2>
 
-              <!-- <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188"
-                width="400"
-                height="300"
-                frameborder="0"
-                style="border: 0"
-                allowfullscreen
-              ></iframe> -->
+      <div class="projects-grid">
+
+        <!-- Featured -->
+        <div class="proj-card proj-featured reveal">
+          <div class="proj-img-wrap">
+            <img src="images/project/project-image01.png" alt="Powerfull CRM & ERP" loading="lazy" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span>
+              <span class="proj-tag">MySQL</span><span class="proj-tag">Docker</span><span class="proj-tag">SaaS</span>
             </div>
-
-            <!-- <div
-              class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5"
-            >
-              <div class="contact-info-item">
-                <h3 class="mb-3 text-white">Say hello</h3>
-                <p class="footer-text mb-0">010 020 0960</p>
-                <p><a href="mailto:hello@company.co">hello@company.co</a></p>
+            <div class="proj-title">Powerfull CRM & ERP</div>
+            <div class="proj-desc">SaaS de gestão empresarial com manutenção em múltiplos servidores, garantindo alta disponibilidade. Módulos personalizados: <em>SAF-T Angola</em> (exportação fiscal) e <em>CargoWise Integration</em> (logística internacional). Melhorias contínuas de segurança, performance e usabilidade.</div>
+            <div class="proj-footer">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:0.54rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.45rem">Clientes</div>
+                <div class="proj-clients">
+                  <span class="client-badge">Angola Cables</span>
+                  <span class="client-badge">DHL</span>
+                  <span class="client-badge">MwangoBrain</span>
+                  <span class="client-badge">INACOM</span>
+                </div>
               </div>
-
-              <ul class="social-links">
-                <li>
-                  <a
-                    href="#"
-                    class="uil uil-dribbble"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Dribbble"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="uil uil-instagram"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Instagram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="uil uil-youtube"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Youtube"
-                  ></a>
-                </li>
-              </ul>
-            </div> -->
-          </div>
-
-          <div class="col-lg-6 col-12">
-            <div class="contact-form">
-              <h2 class="mb-4">Vamos conversar?</h2>
-              <p>Entre em contacto comigo através de um dos canais abaixo:</p>
-
-              <ul class="list-unstyled mt-4">
-                <li class="mb-2">
-                  <i class="uil uil-envelope"></i>
-                  <strong>Email:</strong>
-                  <a href="mailto:hulquene.ngola@gmail.com"
-                    >hulquene.ngola@gmail.com</a
-                  >
-                </li>
-                <li class="mb-2">
-                  <i class="uil uil-phone"></i>
-                  <strong>Telefone:</strong>
-                  <a href="tel:+244941419025">(+244) 941 419 025</a>
-                </li>
-                <li class="mb-2">
-                  <i class="uil uil-linkedin"></i>
-                  <strong>LinkedIn:</strong>
-                  <a
-                    href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227"
-                    target="_blank"
-                    >linkedin.com/in/hulquene-ngola</a
-                  >
-                </li>
-                <li class="mb-2">
-                  <i class="uil uil-github"></i>
-                  <strong>GitHub:</strong>
-                  <a href="https://github.com/hulquene" target="_blank"
-                    >github.com/hulquene</a
-                  >
-                </li>
-              </ul>
+              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-12">
-            <p class="copyright-text text-center">
-              &copy; 2025 Hulquene Roberto Ngola. Todos os direitos reservados.
-            </p>
-            <p class="copyright-text text-center">
-              Desenvolvido por
-              <a href="https://github.com/hulquene" target="_blank"
-                >Hulquene Ngola</a
-              >
-            </p>
+        <!-- Small: Eafrika.EDU -->
+        <div class="proj-card proj-small reveal reveal-d1">
+          <div class="proj-img-wrap">
+            <img src="images/project/project-image02.png" alt="Eafrika.EDU" loading="lazy" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span><span class="proj-tag">MySQL</span>
+            </div>
+            <div class="proj-title">Eafrika.EDU</div>
+            <div class="proj-desc">Sistema académico avançado para gestão escolar: matrículas, notas, horários e comunicação interna entre alunos e docentes.</div>
+            <div class="proj-footer" style="padding-top:1rem;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end">
+              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wide: EA POS -->
+        <div class="proj-card proj-wide reveal">
+          <div class="proj-img-wrap">
+            <img src="images/project/project-image03.png" alt="EA POS Mobile" loading="lazy" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">Flutter</span><span class="proj-tag">Dart</span><span class="proj-tag">API REST</span>
+            </div>
+            <div class="proj-title">EA POS Mobile</div>
+            <div class="proj-desc">Aplicativo de ponto de venda (PDV) com integração segura via API REST, sincronização em tempo real com plataforma web e atualizações robustas de funcionalidades. Desenvolvido com Flutter para alta performance em Android.</div>
+            <div style="margin-top:1.5rem">
+              <a href="#" class="proj-link">Ver detalhes <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small: Open Source -->
+        <div class="proj-card proj-small reveal reveal-d2">
+          <div class="proj-img-wrap">
+            <img src="images/project/project-image04.png" alt="Sistemas Open Source" loading="lazy" />
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">Java</span><span class="proj-tag">Python</span>
+              <span class="proj-tag">Angular</span><span class="proj-tag">PHP</span>
+            </div>
+            <div class="proj-title">Sistemas Open Source</div>
+            <div class="proj-desc">Manutenção e gestão de Apache Fineract, Mifos, RapidPro, NextCloud e DHIS2 para clientes institucionais em Angola.</div>
+            <div class="proj-footer" style="padding-top:1rem;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end">
+              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══════════════════════════════════════════════════ -->
+  <div class="marquee-outer">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+
+  <!-- ══ STACK ════════════════════════════════════════════════════ -->
+  <section id="stack" class="section">
+    <div class="container">
+      <div class="section-eyebrow">Tecnologias</div>
+      <h2 class="section-title">Stack completa</h2>
+
+      <div class="stack-grid reveal">
+        <div class="stack-cell"><span class="stack-icon">🐘</span><div class="stack-name">PHP</div></div>
+        <div class="stack-cell"><span class="stack-icon">☕</span><div class="stack-name">Java</div></div>
+        <div class="stack-cell"><span class="stack-icon">🐍</span><div class="stack-name">Python</div></div>
+        <div class="stack-cell"><span class="stack-icon">🎯</span><div class="stack-name">Dart</div></div>
+        <div class="stack-cell"><span class="stack-icon">🟨</span><div class="stack-name">JavaScript</div></div>
+        <div class="stack-cell"><span class="stack-icon">🔷</span><div class="stack-name">Go</div></div>
+        <div class="stack-cell"><span class="stack-icon">🔴</span><div class="stack-name">Laravel</div></div>
+        <div class="stack-cell"><span class="stack-icon">🍃</span><div class="stack-name">Spring Boot</div></div>
+        <div class="stack-cell"><span class="stack-icon">🌿</span><div class="stack-name">Django</div></div>
+        <div class="stack-cell"><span class="stack-icon">⚛️</span><div class="stack-name">React JS</div></div>
+        <div class="stack-cell"><span class="stack-icon">💙</span><div class="stack-name">Flutter</div></div>
+        <div class="stack-cell"><span class="stack-icon">🟢</span><div class="stack-name">Node.js</div></div>
+        <div class="stack-cell"><span class="stack-icon">🐳</span><div class="stack-name">Docker</div></div>
+        <div class="stack-cell"><span class="stack-icon">⚙️</span><div class="stack-name">CI/CD</div></div>
+        <div class="stack-cell"><span class="stack-icon">🗄️</span><div class="stack-name">MySQL</div></div>
+        <div class="stack-cell"><span class="stack-icon">🐘</span><div class="stack-name">PostgreSQL</div></div>
+        <div class="stack-cell"><span class="stack-icon">🔴</span><div class="stack-name">Redis</div></div>
+        <div class="stack-cell"><span class="stack-icon">☁️</span><div class="stack-name">AWS</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══════════════════════════════════════════════════ -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-eyebrow">Contato</div>
+
+      <div class="contact-grid">
+        <div class="reveal">
+          <h2 class="contact-big-title">Vamos<br>trabalhar<br><span class="accent">juntos?</span></h2>
+          <p class="contact-sub">Estou disponível para projetos freelance, consultoria técnica e oportunidades de emprego. Entre em contacto — responderei brevemente.</p>
+
+          <div class="channels">
+            <a href="mailto:hulquene.ngola@gmail.com" class="channel">
+              <div class="ch-icon"><i class="ph ph-envelope"></i></div>
+              <div><span class="ch-label">Email</span><span class="ch-value">hulquene.ngola@gmail.com</span></div>
+            </a>
+            <a href="https://wa.me/244941419025" target="_blank" rel="noopener" class="channel">
+              <div class="ch-icon"><i class="ph ph-whatsapp-logo"></i></div>
+              <div><span class="ch-label">WhatsApp / Telefone</span><span class="ch-value">(+244) 941 419 025</span></div>
+            </a>
+            <a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener" class="channel">
+              <div class="ch-icon"><i class="ph ph-linkedin-logo"></i></div>
+              <div><span class="ch-label">LinkedIn</span><span class="ch-value">hulquene-roberto-ngola</span></div>
+            </a>
+            <a href="https://github.com/hulquene" target="_blank" rel="noopener" class="channel">
+              <div class="ch-icon"><i class="ph ph-github-logo"></i></div>
+              <div><span class="ch-label">GitHub</span><span class="ch-value">github.com/hulquene</span></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-d2">
+          <div class="contact-map">
+            <div class="map-badge"><i class="ph ph-map-pin"></i> Luanda, Angola</div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7885.388624641325!2d13.251802300000008!3d-8.814761499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sao!4v1750326207540!5m2!1spt-PT!2sao"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Luanda, Angola"></iframe>
+          </div>
+          <div class="cv-card">
+            <div>
+              <div class="cv-card-label">Currículo completo</div>
+              <div class="cv-card-title">Baixar meu CV</div>
+            </div>
+            <a href="docs/curriculo-hulquene-v1.pdf" class="btn btn-fill" download>
+              <i class="ph ph-download-simple"></i> Download
+            </a>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
-  </body>
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-copy">© 2025 Hulquene Roberto Ngola — Todos os direitos reservados</div>
+      <div class="footer-socials">
+        <a href="https://github.com/hulquene" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:hulquene.ngola@gmail.com">Email</a>
+        <a href="docs/curriculo-hulquene-v1.pdf" download>CV</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Build marquee
+    (function() {
+      const words = ['PHP','Java','Laravel','Spring Boot','Docker','Python','Flutter','React','CI/CD','DevOps','MySQL','Tech Lead','Node.js','PostgreSQL'];
+      const track = document.getElementById('marquee-track');
+      let html = '';
+      for (let i = 0; i < 2; i++) {
+        words.forEach(w => { html += `<span class="mq-word">${w}</span><span class="mq-dot">✦</span>`; });
+      }
+      track.innerHTML = html;
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
 </html>
