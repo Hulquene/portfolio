@@ -1,2179 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Hulquene Roberto Ngola — Dev Full Stack & Tech Lead</title>
-  <meta name="description" content="Portfólio de Hulquene Roberto Ngola — desenvolvedor full-stack com 4+ anos de experiência, especialista em desenvolvimento web, DevOps e Tech Lead. Angola, Luanda." />
-  <meta name="keywords" content="Hulquene Ngola, desenvolvedor full-stack, DevOps, Docker, Tech Lead, Angola, Luanda" />
+  <title>Hulquene Roberto Ngola — Dev Full Stack</title>
+  <meta name="description" content="Portfólio de Hulquene Roberto Ngola — desenvolvedor full-stack com 4+ anos de experiência, especialista em desenvolvimento web, DevOps. Angola, Luanda." />
+  <meta name="keywords" content="Hulquene Ngola, desenvolvedor full-stack, DevOps, Docker, Angola, Luanda" />
   <meta name="author" content="Hulquene Roberto Ngola" />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#08080c" />
   <link rel="canonical" href="https://hulquene.github.io/portfolio" />
 
-  <meta property="og:title" content="Hulquene Roberto Ngola — Dev Full Stack & Tech Lead" />
+  <meta property="og:title" content="Hulquene Roberto Ngola — Dev Full Stack" />
   <meta property="og:description" content="Desenvolvedor full-stack com 4+ anos de experiência em desenvolvimento e DevOps." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hulquene.github.io/portfolio" />
-  <meta property="og:image" content="images/preview.png" />
+  <meta property="og:image" content="https://hulquene.github.io/portfolio/images/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/png" href="images/favicon.png" />
 
-  <!-- Fonts -->
+  <!-- Tema inicial: preferência guardada → preferência do sistema. Corre antes do CSS para evitar "flash". -->
+  <script>
+    (function () {
+      var root = document.documentElement, t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      root.dataset.theme = t;
+      root.classList.add('js');
+    })();
+  </script>
+
+  <!-- Fontes: Space Grotesk (títulos), Geist (texto), JetBrains Mono (detalhes técnicos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <!-- Ícones Phosphor: só o peso "regular" (em vez de carregar os 6 pesos) -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 
-  <style>
-    /* ============================================================
-       HULQUENE ROBERTO NGOLA — PORTFOLIO PROFISSIONAL PREMIUM
-       ============================================================ */
-
-    :root {
-      --bg-0:      #050508;
-      --bg-1:      #0a0a12;
-      --bg-2:      #12121c;
-      --card:      rgba(18,18,30,0.85);
-      --border:    rgba(255,255,255,0.06);
-      --border-h:  rgba(255,107,53,0.5);
-      --accent:    #ff6b35;
-      --accent-2:  #ff8c5a;
-      --gold:      #ffc200;
-      --text:      #f5f5f7;
-      --muted:     #6b6b8f;
-      --muted-l:   #a0a0bf;
-      --font-head: 'Syne', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --font-body: 'DM Sans', sans-serif;
-      --ease:      cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --radius:    12px;
-      --radius-lg: 20px;
-    }
-
-    *, *::before, *::after { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) var(--bg-1);
-    }
-
-    ::-webkit-scrollbar { 
-      width: 8px; 
-    }
-    
-    ::-webkit-scrollbar-track { 
-      background: var(--bg-1); 
-    }
-    
-    ::-webkit-scrollbar-thumb { 
-      background: linear-gradient(180deg, var(--accent), var(--gold));
-      border-radius: 4px;
-      border: 2px solid var(--bg-1);
-    }
-    
-    ::-webkit-scrollbar-thumb:hover { 
-      background: linear-gradient(180deg, var(--accent-2), var(--gold));
-      box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg-0);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-      cursor: none;
-    }
-
-    @media (hover: none) { 
-      body { cursor: auto; } 
-      .cursor, .cursor-ring { display: none !important; } 
-    }
-
-    /* Noise Texture Premium */
-    body::after {
-      content: '';
-      position: fixed; 
-      inset: 0;
-      pointer-events: none;
-      z-index: 9997;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    /* Container Premium */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ============================================================
-       CURSOR CUSTOMIZADO PREMIUM
-       ============================================================ */
-    .cursor {
-      width: 10px; 
-      height: 10px;
-      background: var(--accent);
-      border-radius: 50%;
-      position: fixed; 
-      top: 0; 
-      left: 0;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.08s var(--ease), background 0.3s;
-      will-change: left, top;
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-    }
-
-    .cursor.hovering { 
-      transform: translate(-50%, -50%) scale(0); 
-      background: var(--gold);
-    }
-
-    .cursor.clicking {
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-
-    .cursor-ring {
-      width: 40px; 
-      height: 40px;
-      border: 1.5px solid rgba(255, 107, 53, 0.4);
-      border-radius: 50%;
-      position: fixed; 
-      top: 0; 
-      left: 0;
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.3s, transform 0.15s;
-      will-change: left, top;
-    }
-
-    .cursor-ring.hovering { 
-      width: 60px; 
-      height: 60px; 
-      border-color: var(--accent);
-      background: rgba(255, 107, 53, 0.05);
-    }
-
-    .cursor-ring.clicking {
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-
-    /* ============================================================
-       LOADER PREMIUM
-       ============================================================ */
-    #loader {
-      position: fixed; 
-      inset: 0;
-      background: var(--bg-0);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 2rem;
-      transition: opacity 0.8s var(--ease), visibility 0.8s;
-    }
-
-    #loader.hidden { 
-      opacity: 0; 
-      visibility: hidden; 
-      pointer-events: none; 
-    }
-
-    .loader-content {
-      text-align: center;
-    }
-
-    .loader-name {
-      font-family: var(--font-head);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -3px;
-      color: var(--text);
-      margin-bottom: 2rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .loader-name::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      animation: lineGrow 1.5s var(--ease) forwards;
-    }
-
-    @keyframes lineGrow {
-      to { transform: scaleX(1); }
-    }
-
-    .loader-name span { 
-      color: var(--accent); 
-      display: inline-block;
-      animation: pulseDot 1.5s ease-in-out infinite;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.2); }
-    }
-
-    .loader-bar-container {
-      width: 280px;
-      height: 3px;
-      background: var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .loader-bar-fill { 
-      height: 100%; 
-      background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
-      background-size: 200% 100%;
-      width: 0%;
-      transition: width 0.05s linear;
-      animation: shimmer 2s linear infinite;
-      border-radius: 3px;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    .loader-pct { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--muted); 
-      letter-spacing: 4px;
-      margin-top: 1rem;
-    }
-
-    .loader-status {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--muted-l);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-      opacity: 0.7;
-    }
-
-    /* ============================================================
-       NAVBAR PREMIUM COM GLASSMORPHISM
-       ============================================================ */
-    #navbar {
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0;
-      z-index: 1000;
-      padding: 1.2rem 0;
-      transition: all 0.5s var(--ease);
-      border-bottom: 1px solid transparent;
-    }
-
-    #navbar.scrolled {
-      background: rgba(5, 5, 8, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    #navbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -1px;
-      position: relative;
-      z-index: 2;
-      transition: transform 0.3s var(--ease);
-    }
-
-    .nav-logo:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-logo .dot { 
-      color: var(--accent); 
-      font-size: 2rem; 
-      line-height: 0.3; 
-      vertical-align: middle;
-      animation: pulseDot 2s ease-in-out infinite;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      transition: all 0.3s var(--ease);
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transition: width 0.4s var(--ease);
-      border-radius: 2px;
-    }
-
-    .nav-links a:hover { 
-      color: var(--text); 
-    }
-
-    .nav-links a:hover::before { 
-      width: 100%; 
-    }
-
-    .nav-cta {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 0.7rem 1.5rem;
-      border: 1.5px solid var(--accent);
-      border-radius: var(--radius);
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.4s var(--ease);
-      white-space: nowrap;
-      z-index: 2;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nav-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .nav-cta:hover::before {
-      left: 100%;
-    }
-
-    .nav-cta:hover { 
-      background: var(--accent); 
-      color: #fff; 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4); 
-    }
-
-    /* Hamburger Premium */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 2;
-      position: relative;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 26px; 
-      height: 2px;
-      background: var(--text);
-      transition: all 0.4s var(--ease);
-      transform-origin: center;
-      border-radius: 2px;
-    }
-
-    .nav-toggle.open span:nth-child(1) { 
-      transform: translateY(8px) rotate(45deg); 
-    }
-    
-    .nav-toggle.open span:nth-child(2) { 
-      opacity: 0; 
-      transform: scaleX(0); 
-    }
-    
-    .nav-toggle.open span:nth-child(3) { 
-      transform: translateY(-8px) rotate(-45deg); 
-    }
-
-    /* ============================================================
-       HERO SECTION PREMIUM
-       ============================================================ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 10rem 0 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Partículas de fundo */
-    .particles {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: floatParticle 15s infinite;
-    }
-
-    @keyframes floatParticle {
-      0%, 100% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.3;
-      }
-      90% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-100vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-
-    .hero-grid {
-      position: absolute; 
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 80px 80px;
-      animation: gridDrift 25s linear infinite;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
-    }
-
-    @keyframes gridDrift { 
-      0% { background-position: 0 0; } 
-      100% { background-position: 80px 80px; } 
-    }
-
-    /* Glows Premium */
-    .glow { 
-      position: absolute; 
-      border-radius: 50%; 
-      filter: blur(100px); 
-      pointer-events: none; 
-      animation: glowPulse 8s ease-in-out infinite; 
-    }
-
-    .glow-1 { 
-      width: 600px; 
-      height: 600px; 
-      background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%); 
-      top: -150px; 
-      right: -100px; 
-      animation-delay: 0s; 
-    }
-    
-    .glow-2 { 
-      width: 450px; 
-      height: 450px; 
-      background: radial-gradient(circle, rgba(255, 194, 0, 0.1) 0%, transparent 70%); 
-      bottom: -100px; 
-      left: -80px; 
-      animation-delay: 2.5s; 
-    }
-    
-    .glow-3 { 
-      width: 350px; 
-      height: 350px; 
-      background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%); 
-      top: 40%; 
-      left: 30%; 
-      animation-delay: 5s; 
-    }
-
-    @keyframes glowPulse { 
-      0%, 100% { transform: scale(1); opacity: 1; } 
-      50% { transform: scale(1.15); opacity: 0.7; } 
-    }
-
-    /* Hero Layout */
-    .hero-body {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .hero-text { 
-      max-width: 700px; 
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-bottom: 2.5rem;
-      padding: 0.8rem 1.2rem;
-      background: rgba(255, 107, 53, 0.1);
-      border: 1px solid rgba(255, 107, 53, 0.2);
-      border-radius: 100px;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 0.3s forwards;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-eyebrow::before { 
-      content: ''; 
-      display: inline-block; 
-      width: 8px; 
-      height: 8px; 
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulseDot 2s ease-in-out infinite;
-    }
-
-    @keyframes fadeUp { 
-      from { opacity: 0; transform: translateY(30px); } 
-      to { opacity: 1; transform: translateY(0); } 
-    }
-
-    .hero-h1 {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: clamp(3.5rem, 7vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-h1 .line { 
-      display: block; 
-      overflow: hidden; 
-      opacity: 0;
-      animation: lineIn 1s var(--ease) forwards;
-    }
-
-    .hero-h1 .line:nth-child(1) { 
-      animation-delay: 0.5s; 
-    }
-    
-    .hero-h1 .line:nth-child(2) { 
-      animation-delay: 0.65s; 
-      color: var(--accent);
-      text-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
-    }
-    
-    .hero-h1 .line:nth-child(3) { 
-      animation-delay: 0.8s; 
-      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); 
-      color: transparent;
-    }
-
-    @keyframes lineIn { 
-      from { 
-        opacity: 0; 
-        transform: translateY(80px) skewY(5deg); 
-      } 
-      to { 
-        opacity: 1; 
-        transform: translateY(0) skewY(0); 
-      } 
-    }
-
-    .hero-chips {
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.75rem; 
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 1s forwards;
-    }
-
-    .hero-chip {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted-l);
-      border: 1px solid var(--border);
-      padding: 0.6rem 1.2rem;
-      border-radius: 100px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: all 0.4s var(--ease);
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-chip:hover { 
-      border-color: var(--accent); 
-      color: var(--accent);
-      background: rgba(255, 107, 53, 0.1);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(255, 107, 53, 0.1);
-    }
-
-    .hero-desc {
-      font-size: 1.15rem;
-      color: var(--muted-l);
-      line-height: 1.9;
-      max-width: 550px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 1.2s forwards;
-    }
-
-    .hero-desc strong { 
-      color: var(--text); 
-      font-weight: 500; 
-      position: relative;
-    }
-
-    .hero-desc strong::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0.5;
-    }
-
-    .hero-actions {
-      display: flex; 
-      gap: 1.25rem; 
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 1.4s forwards;
-    }
-
-    /* Stats Premium */
-    .hero-stats {
-      display: flex; 
-      flex-direction: column; 
-      gap: 1rem;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 1.6s forwards;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem 2rem;
-      text-align: right;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      transition: all 0.5s var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--accent), var(--gold));
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.5s var(--ease);
-    }
-
-    .stat-card:hover { 
-      border-color: var(--border-h); 
-      transform: translateX(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .stat-card:hover::before {
-      transform: scaleY(1);
-    }
-
-    .stat-n { 
-      font-family: var(--font-head); 
-      font-size: 2.8rem; 
-      font-weight: 800; 
-      line-height: 1; 
-      color: var(--text);
-      background: linear-gradient(135deg, var(--text), var(--muted-l));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .stat-n em { 
-      color: var(--accent); 
-      font-style: normal;
-      -webkit-text-fill-color: var(--accent);
-    }
-
-    .stat-l { 
-      font-family: var(--font-mono); 
-      font-size: 0.6rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 2.5px; 
-      margin-top: 0.5rem; 
-      line-height: 1.6; 
-    }
-
-    /* Scroll Hint Premium */
-    .scroll-hint {
-      position: absolute; 
-      bottom: 3rem; 
-      left: 50%; 
-      transform: translateX(-50%);
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      gap: 0.75rem;
-      z-index: 1;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 2s forwards;
-    }
-
-    .scroll-hint span { 
-      font-family: var(--font-mono); 
-      font-size: 0.65rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 4px; 
-    }
-
-    .scroll-line { 
-      width: 1px; 
-      height: 60px; 
-      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-      animation: scrollBreath 2.5s ease-in-out infinite;
-      position: relative;
-    }
-
-    .scroll-line::before {
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: scrollDot 2.5s ease-in-out infinite;
-    }
-
-    @keyframes scrollBreath { 
-      0%, 100% { opacity: 1; transform: scaleY(1); } 
-      50% { opacity: 0.5; transform: scaleY(0.7); } 
-    }
-
-    @keyframes scrollDot {
-      0%, 100% { top: 0; opacity: 1; }
-      50% { top: 100%; opacity: 0.3; }
-    }
-
-    /* ============================================================
-       BUTTONS PREMIUM
-       ============================================================ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      padding: 1rem 2.5rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 700;
-      transition: all 0.4s var(--ease);
-      cursor: pointer;
-      border: none;
-      white-space: nowrap;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.6s;
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    .btn-fill { 
-      background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
-      color: #fff; 
-      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-    }
-
-    .btn-fill:hover { 
-      transform: translateY(-3px) scale(1.02); 
-      box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
-    }
-
-    .btn-outline { 
-      border: 1.5px solid var(--border); 
-      color: var(--text); 
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-outline:hover { 
-      border-color: var(--accent); 
-      color: var(--accent);
-      background: rgba(255, 107, 53, 0.05);
-      transform: translateY(-3px);
-    }
-
-    /* ============================================================
-       SECTIONS PREMIUM
-       ============================================================ */
-    .section { 
-      padding: 8rem 0; 
-      position: relative; 
-    }
-    
-    .section-alt { 
-      background: var(--bg-1); 
-    }
-
-    .section-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-bottom: 1rem;
-    }
-
-    .section-eyebrow::before { 
-      content: ''; 
-      width: 40px; 
-      height: 2px; 
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      flex-shrink: 0;
-      border-radius: 2px;
-    }
-
-    .section-title {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      letter-spacing: -2px;
-      line-height: 1.1;
-      color: var(--text);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      border-radius: 2px;
-    }
-
-    /* ============================================================
-       ABOUT SECTION PREMIUM
-       ============================================================ */
-    .about-grid { 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr; 
-      gap: 6rem; 
-      align-items: center; 
-      margin-top: 5rem; 
-    }
-
-    .about-body p { 
-      font-size: 1.05rem; 
-      color: var(--muted-l); 
-      line-height: 2; 
-      margin-bottom: 1.8rem; 
-      font-weight: 300; 
-    }
-
-    .about-body p strong { 
-      color: var(--text); 
-      font-weight: 500; 
-    }
-
-    .about-tags-section { 
-      margin-top: 3rem; 
-    }
-
-    .tags-label { 
-      font-family: var(--font-mono); 
-      font-size: 0.7rem; 
-      color: var(--gold); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      margin-bottom: 1rem; 
-      display: block;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .tags-label::before {
-      content: '//';
-      color: var(--accent);
-    }
-
-    .tag-row { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.6rem; 
-      margin-bottom: 1.5rem; 
-    }
-
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text);
-      background: rgba(255, 107, 53, 0.08);
-      border: 1px solid rgba(255, 107, 53, 0.15);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.4s var(--ease);
-      cursor: default;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tag::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.5s;
-    }
-
-    .tag:hover::before {
-      left: 100%;
-    }
-
-    .tag:hover { 
-      background: rgba(255, 107, 53, 0.2); 
-      border-color: var(--accent); 
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(255, 107, 53, 0.15);
-    }
-
-    /* Skill Bars Premium */
-    .bars { 
-      margin-top: 3rem; 
-    }
-
-    .bar-item { 
-      margin-bottom: 1.8rem; 
-    }
-
-    .bar-header { 
-      display: flex; 
-      justify-content: space-between; 
-      margin-bottom: 10px; 
-    }
-
-    .bar-name { 
-      font-family: var(--font-mono); 
-      font-size: 0.8rem; 
-      color: var(--text); 
-      text-transform: uppercase; 
-      letter-spacing: 2px; 
-    }
-
-    .bar-pct { 
-      font-family: var(--font-mono); 
-      font-size: 0.8rem; 
-      color: var(--accent); 
-      font-weight: 700;
-    }
-
-    .bar-track { 
-      height: 6px; 
-      background: var(--border); 
-      border-radius: 3px; 
-      position: relative; 
-      overflow: visible;
-    }
-
-    .bar-fill { 
-      height: 100%; 
-      background: linear-gradient(90deg, var(--accent), var(--gold)); 
-      border-radius: 3px; 
-      width: 0%; 
-      transition: width 1.8s var(--ease); 
-      position: relative;
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-    }
-
-    .bar-fill::after { 
-      content: ''; 
-      position: absolute; 
-      right: -6px; 
-      top: -3px; 
-      width: 12px; 
-      height: 12px; 
-      border-radius: 50%; 
-      background: var(--gold); 
-      box-shadow: 0 0 20px var(--gold), 0 0 40px var(--accent);
-      opacity: 0; 
-      transition: opacity 0.3s 1.6s, transform 0.3s 1.6s;
-      transform: scale(0);
-    }
-
-    .bar-fill.animated::after { 
-      opacity: 1; 
-      transform: scale(1);
-    }
-
-    /* About Visual Premium */
-    .about-visual { 
-      position: relative; 
-    }
-
-    .about-frame { 
-      aspect-ratio: 4/5; 
-      background: var(--card); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius-lg); 
-      overflow: hidden; 
-      position: relative;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      transition: transform 0.5s var(--ease);
-    }
-
-    .about-frame:hover {
-      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-    }
-
-    .about-frame img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      transition: all 0.8s var(--ease); 
-      filter: grayscale(30%) contrast(1.1);
-    }
-
-    .about-frame:hover img { 
-      filter: grayscale(0%) contrast(1.05); 
-      transform: scale(1.1);
-    }
-
-    .about-frame-overlay { 
-      position: absolute; 
-      inset: 0; 
-      background: linear-gradient(to top, rgba(5, 5, 8, 0.9) 0%, transparent 60%, rgba(255, 107, 53, 0.1) 100%); 
-      pointer-events: none; 
-    }
-
-    .about-frame-badge { 
-      position: absolute; 
-      bottom: 2rem; 
-      left: 2rem; 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--accent); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      background: rgba(5, 5, 8, 0.9); 
-      border: 1px solid var(--border-h); 
-      padding: 0.8rem 1.2rem; 
-      border-radius: 8px; 
-      backdrop-filter: blur(20px);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .about-frame-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulseDot 2s infinite;
-    }
-
-    .about-deco { 
-      position: absolute; 
-      top: -25px; 
-      right: -25px; 
-      width: 120px; 
-      height: 120px; 
-      border: 2px solid rgba(255, 107, 53, 0.2); 
-      border-radius: var(--radius); 
-      z-index: -1;
-      animation: rotateSlow 20s linear infinite;
-    }
-
-    @keyframes rotateSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .about-deco-2 { 
-      position: absolute; 
-      bottom: -20px; 
-      left: -20px; 
-      width: 80px; 
-      height: 80px; 
-      border: 2px solid rgba(255, 194, 0, 0.15); 
-      border-radius: var(--radius); 
-      z-index: -1;
-      animation: rotateSlow 15s linear infinite reverse;
-    }
-
-    /* ============================================================
-       EXPERIENCE SECTION PREMIUM
-       ============================================================ */
-    .exp-grid { 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 5rem; 
-      margin-top: 5rem; 
-    }
-
-    .exp-col-head { 
-      font-family: var(--font-head); 
-      font-size: 1.3rem; 
-      font-weight: 700; 
-      color: var(--text); 
-      margin-bottom: 3rem; 
-      display: flex; 
-      align-items: center; 
-      gap: 1rem; 
-    }
-
-    .exp-col-head::after { 
-      content: ''; 
-      flex: 1; 
-      height: 1px; 
-      background: linear-gradient(90deg, var(--border), transparent); 
-    }
-
-    .timeline { 
-      position: relative; 
-      padding-left: 2rem; 
-    }
-
-    .timeline::before { 
-      content: ''; 
-      position: absolute; 
-      left: 0; 
-      top: 8px; 
-      bottom: 0; 
-      width: 2px; 
-      background: linear-gradient(to bottom, var(--accent) 0%, var(--gold) 50%, transparent 100%); 
-    }
-
-    .tl-item { 
-      position: relative; 
-      padding-bottom: 3rem; 
-      padding-left: 2rem; 
-      transition: transform 0.3s var(--ease);
-    }
-
-    .tl-item:hover {
-      transform: translateX(10px);
-    }
-
-    .tl-item::before { 
-      content: ''; 
-      position: absolute; 
-      left: calc(-2rem - 5px); 
-      top: 8px; 
-      width: 12px; 
-      height: 12px; 
-      border-radius: 50%; 
-      background: var(--bg-0); 
-      border: 3px solid var(--accent); 
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-      transition: all 0.4s var(--ease);
-      z-index: 1;
-    }
-
-    .tl-item:hover::before { 
-      background: var(--accent); 
-      box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
-      transform: scale(1.3);
-    }
-
-    .tl-year { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--accent); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .tl-company { 
-      font-family: var(--font-mono); 
-      font-size: 0.8rem; 
-      color: var(--muted); 
-      margin-bottom: 0.5rem; 
-      text-transform: uppercase; 
-      letter-spacing: 1px; 
-    }
-
-    .tl-role { 
-      font-family: var(--font-head); 
-      font-size: 1.2rem; 
-      font-weight: 700; 
-      color: var(--text); 
-      margin-bottom: 0.8rem;
-      transition: color 0.3s;
-    }
-
-    .tl-item:hover .tl-role {
-      color: var(--accent);
-    }
-
-    .tl-desc { 
-      font-size: 0.95rem; 
-      color: var(--muted-l); 
-      line-height: 1.9; 
-      font-weight: 300; 
-    }
-
-    /* ============================================================
-       PROJECTS SECTION PREMIUM
-       ============================================================ */
-    .projects-grid { 
-      display: grid; 
-      grid-template-columns: repeat(12, 1fr); 
-      gap: 2rem; 
-      margin-top: 5rem; 
-    }
-
-    .proj-card { 
-      background: var(--card); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius-lg); 
-      overflow: hidden; 
-      display: flex; 
-      flex-direction: column; 
-      transition: all 0.5s var(--ease);
-      position: relative;
-    }
-
-    .proj-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s;
-      pointer-events: none;
-    }
-
-    .proj-card:hover::before {
-      opacity: 1;
-    }
-
-    .proj-card:hover { 
-      border-color: var(--border-h); 
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(255, 107, 53, 0.15);
-    }
-
-    .proj-featured { 
-      grid-column: span 7; 
-    }
-    
-    .proj-small { 
-      grid-column: span 5; 
-    }
-    
-    .proj-wide { 
-      grid-column: span 12; 
-      display: grid; 
-      grid-template-columns: 1.2fr 1fr; 
-    }
-    
-    .proj-wide .proj-img-wrap { 
-      aspect-ratio: auto; 
-      height: 100%; 
-      min-height: 280px; 
-    }
-    
-    .proj-wide .proj-body { 
-      padding: 3rem; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-    }
-
-    .proj-img-wrap { 
-      overflow: hidden; 
-      aspect-ratio: 16/10; 
-      background: var(--bg-0); 
-      flex-shrink: 0; 
-      position: relative;
-    }
-
-    .proj-img-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, var(--bg-0) 0%, transparent 50%);
-      opacity: 0.5;
-      transition: opacity 0.5s;
-    }
-
-    .proj-card:hover .proj-img-wrap::after {
-      opacity: 0.3;
-    }
-
-    .proj-img-wrap img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      transition: transform 0.8s var(--ease); 
-    }
-
-    .proj-card:hover .proj-img-wrap img { 
-      transform: scale(1.1);
-    }
-
-    .proj-body { 
-      padding: 2.5rem; 
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-      position: relative;
-      z-index: 1;
-    }
-
-    .proj-tags { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.6rem; 
-      margin-bottom: 1.2rem; 
-    }
-
-    .proj-tag { 
-      font-family: var(--font-mono); 
-      font-size: 0.7rem; 
-      color: var(--gold); 
-      background: rgba(255, 194, 0, 0.1); 
-      border: 1px solid rgba(255, 194, 0, 0.25); 
-      padding: 0.4rem 0.9rem; 
-      border-radius: 6px; 
-      text-transform: uppercase; 
-      letter-spacing: 1.5px;
-      transition: all 0.3s;
-    }
-
-    .proj-tag:hover {
-      background: rgba(255, 194, 0, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .proj-title { 
-      font-family: var(--font-head); 
-      font-size: 1.5rem; 
-      font-weight: 700; 
-      color: var(--text); 
-      letter-spacing: -0.5px; 
-      margin-bottom: 1rem;
-      transition: color 0.3s;
-    }
-
-    .proj-card:hover .proj-title {
-      color: var(--accent);
-    }
-
-    .proj-desc { 
-      font-size: 0.95rem; 
-      color: var(--muted-l); 
-      line-height: 1.9; 
-      font-weight: 300; 
-      flex: 1; 
-    }
-
-    .proj-desc em {
-      color: var(--accent);
-      font-style: normal;
-      font-weight: 500;
-    }
-
-    .proj-footer { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      margin-top: 2rem; 
-      padding-top: 1.5rem; 
-      border-top: 1px solid var(--border); 
-      flex-wrap: wrap; 
-      gap: 1rem; 
-    }
-
-    .proj-clients { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.6rem; 
-    }
-
-    .client-badge { 
-      font-family: var(--font-mono); 
-      font-size: 0.7rem; 
-      color: var(--muted-l); 
-      border: 1px solid var(--border); 
-      padding: 0.4rem 0.9rem; 
-      border-radius: 6px; 
-      text-transform: uppercase; 
-      letter-spacing: 1px;
-      transition: all 0.3s;
-    }
-
-    .client-badge:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .proj-link { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--accent); 
-      text-decoration: none; 
-      text-transform: uppercase; 
-      letter-spacing: 2.5px; 
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem; 
-      transition: all 0.4s var(--ease);
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .proj-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.4s var(--ease);
-    }
-
-    .proj-link:hover { 
-      gap: 1rem; 
-    }
-
-    .proj-link:hover::after {
-      width: 100%;
-    }
-
-    /* ============================================================
-       MARQUEE PREMIUM
-       ============================================================ */
-    .marquee-outer { 
-      overflow: hidden; 
-      border-top: 1px solid var(--border); 
-      border-bottom: 1px solid var(--border); 
-      padding: 1.5rem 0; 
-      background: var(--bg-0);
-      position: relative;
-    }
-
-    .marquee-outer::before,
-    .marquee-outer::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 150px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .marquee-outer::before {
-      left: 0;
-      background: linear-gradient(90deg, var(--bg-0), transparent);
-    }
-
-    .marquee-outer::after {
-      right: 0;
-      background: linear-gradient(-90deg, var(--bg-0), transparent);
-    }
-
-    .marquee-track { 
-      display: inline-flex; 
-      gap: 4rem; 
-      white-space: nowrap; 
-      will-change: transform; 
-    }
-
-    .mq-word { 
-      font-family: var(--font-mono); 
-      font-size: 0.9rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 4px;
-      transition: color 0.3s;
-    }
-
-    .mq-word:hover {
-      color: var(--accent);
-    }
-
-    .mq-dot { 
-      color: var(--accent); 
-      font-size: 1rem;
-      animation: pulseDot 2s infinite;
-    }
-
-    /* ============================================================
-       STACK SECTION PREMIUM
-       ============================================================ */
-    .stack-grid { 
-      display: grid; 
-      grid-template-columns: repeat(6, 1fr); 
-      gap: 1px; 
-      background: var(--border); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius-lg); 
-      overflow: hidden; 
-      margin-top: 5rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .stack-cell { 
-      background: var(--bg-1); 
-      padding: 2.5rem 1.5rem; 
-      text-align: center; 
-      transition: all 0.5s var(--ease); 
-      cursor: default; 
-      position: relative; 
-      overflow: hidden;
-    }
-
-    .stack-cell::before { 
-      content: ''; 
-      position: absolute; 
-      inset: 0; 
-      background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 70%); 
-      opacity: 0; 
-      transition: opacity 0.5s; 
-    }
-
-    .stack-cell::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-      transition: left 0.8s;
-    }
-
-    .stack-cell:hover::after {
-      left: 100%;
-    }
-
-    .stack-cell:hover { 
-      background: rgba(255, 107, 53, 0.05);
-      transform: translateY(-5px) scale(1.05);
-      z-index: 1;
-    }
-
-    .stack-cell:hover::before { 
-      opacity: 1; 
-    }
-
-    .stack-icon { 
-      font-size: 2.5rem; 
-      display: block; 
-      margin-bottom: 1rem;
-      transition: transform 0.5s var(--ease);
-      filter: grayscale(20%);
-    }
-
-    .stack-cell:hover .stack-icon {
-      transform: scale(1.2) rotate(5deg);
-      filter: grayscale(0%);
-    }
-
-    .stack-name { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 2px; 
-      transition: all 0.3s; 
-    }
-
-    .stack-cell:hover .stack-name { 
-      color: var(--accent);
-      letter-spacing: 3px;
-    }
-
-    /* ============================================================
-       CONTACT SECTION PREMIUM
-       ============================================================ */
-    .contact-grid { 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 6rem; 
-      align-items: start; 
-      margin-top: 5rem; 
-    }
-
-    .contact-big-title { 
-      font-family: var(--font-head); 
-      font-size: clamp(2.5rem, 5vw, 4rem); 
-      font-weight: 800; 
-      letter-spacing: -3px; 
-      line-height: 1; 
-      margin-bottom: 1.5rem; 
-    }
-
-    .contact-big-title .accent { 
-      color: var(--accent);
-      position: relative;
-      display: inline-block;
-    }
-
-    .contact-big-title .accent::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      border-radius: 2px;
-    }
-
-    .contact-sub { 
-      font-size: 1.1rem; 
-      color: var(--muted-l); 
-      line-height: 2; 
-      margin-bottom: 3rem; 
-      font-weight: 300; 
-    }
-
-    .channels { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 1rem; 
-    }
-
-    .channel { 
-      display: flex; 
-      align-items: center; 
-      gap: 1.5rem; 
-      padding: 1.5rem; 
-      background: var(--card); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      text-decoration: none; 
-      transition: all 0.5s var(--ease); 
-      position: relative; 
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .channel::before { 
-      content: ''; 
-      position: absolute; 
-      left: 0; 
-      top: 0; 
-      bottom: 0; 
-      width: 4px; 
-      background: linear-gradient(180deg, var(--accent), var(--gold));
-      transform: scaleY(0); 
-      transform-origin: bottom; 
-      transition: transform 0.5s var(--ease); 
-    }
-
-    .channel::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.05), transparent);
-      transition: left 0.8s;
-    }
-
-    .channel:hover::after {
-      left: 100%;
-    }
-
-    .channel:hover { 
-      border-color: var(--border-h); 
-      transform: translateX(10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .channel:hover::before { 
-      transform: scaleY(1); 
-    }
-
-    .ch-icon { 
-      width: 55px; 
-      height: 55px; 
-      border-radius: 12px; 
-      background: rgba(255, 107, 53, 0.1); 
-      border: 1px solid rgba(255, 107, 53, 0.2); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 1.5rem; 
-      flex-shrink: 0;
-      transition: all 0.4s var(--ease);
-    }
-
-    .channel:hover .ch-icon {
-      background: var(--accent);
-      transform: scale(1.1) rotate(10deg);
-      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-    }
-
-    .channel:hover .ch-icon {
-      color: #fff;
-    }
-
-    .ch-label { 
-      font-family: var(--font-mono); 
-      font-size: 0.7rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      display: block; 
-      margin-bottom: 0.3rem;
-    }
-
-    .ch-value { 
-      font-size: 1rem; 
-      color: var(--text); 
-      display: block; 
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .channel:hover .ch-value {
-      color: var(--accent);
-    }
-
-    .contact-map { 
-      border-radius: var(--radius-lg); 
-      overflow: hidden; 
-      border: 1px solid var(--border); 
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transition: transform 0.5s var(--ease);
-    }
-
-    .contact-map:hover {
-      transform: translateY(-5px);
-    }
-
-    .contact-map iframe { 
-      display: block; 
-      width: 100%; 
-      height: 320px; 
-      filter: grayscale(100%) invert(92%) hue-rotate(195deg) brightness(0.85); 
-      transition: filter 0.5s; 
-    }
-
-    .contact-map:hover iframe { 
-      filter: grayscale(60%) invert(92%) hue-rotate(195deg) brightness(0.9); 
-    }
-
-    .map-badge { 
-      position: absolute; 
-      top: 1.5rem; 
-      left: 1.5rem; 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--accent); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      background: rgba(5, 5, 8, 0.95); 
-      border: 1px solid var(--border-h); 
-      padding: 0.8rem 1.2rem; 
-      border-radius: 8px; 
-      backdrop-filter: blur(20px);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 2;
-    }
-
-    .map-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulseDot 2s infinite;
-    }
-
-    .cv-card { 
-      margin-top: 1.5rem; 
-      background: var(--card); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      padding: 2rem; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      gap: 1.5rem; 
-      flex-wrap: wrap; 
-      transition: all 0.5s var(--ease);
-      backdrop-filter: blur(10px);
-    }
-
-    .cv-card:hover { 
-      border-color: var(--border-h);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.1);
-    }
-
-    .cv-card-label { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      margin-bottom: 0.5rem; 
-    }
-
-    .cv-card-title { 
-      font-family: var(--font-head); 
-      font-weight: 700; 
-      font-size: 1.3rem; 
-      color: var(--text); 
-    }
-
-    /* ============================================================
-       FOOTER PREMIUM
-       ============================================================ */
-    footer { 
-      background: var(--bg-0); 
-      border-top: 1px solid var(--border); 
-      padding: 3rem 0; 
-      position: relative;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.5;
-    }
-
-    footer .container { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      flex-wrap: wrap; 
-      gap: 1.5rem; 
-    }
-
-    .footer-copy { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 3px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-copy::before {
-      content: '©';
-      color: var(--accent);
-    }
-
-    .footer-socials { 
-      display: flex; 
-      gap: 2.5rem; 
-    }
-
-    .footer-socials a { 
-      font-family: var(--font-mono); 
-      font-size: 0.75rem; 
-      color: var(--muted); 
-      text-decoration: none; 
-      text-transform: uppercase; 
-      letter-spacing: 2.5px; 
-      transition: all 0.4s var(--ease);
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .footer-socials a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.4s var(--ease);
-    }
-
-    .footer-socials a:hover { 
-      color: var(--accent);
-    }
-
-    .footer-socials a:hover::after {
-      width: 100%;
-    }
-
-    /* ============================================================
-       REVEAL ANIMATIONS
-       ============================================================ */
-    .reveal { 
-      opacity: 0; 
-      transform: translateY(40px); 
-      transition: opacity 1s var(--ease), transform 1s var(--ease); 
-    }
-
-    .reveal.in { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-
-    .reveal-d1 { transition-delay: 0.15s; }
-    .reveal-d2 { transition-delay: 0.3s; }
-    .reveal-d3 { transition-delay: 0.45s; }
-    .reveal-d4 { transition-delay: 0.6s; }
-
-    /* ============================================================
-       RESPONSIVE PREMIUM
-       ============================================================ */
-    @media (max-width: 1200px) {
-      .hero-body { grid-template-columns: 1fr; }
-      .hero-stats { 
-        display: none; 
-      }
-      .about-grid { gap: 4rem; }
-    }
-
-    @media (max-width: 960px) {
-      .container { padding: 0 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-visual { max-width: 400px; margin: 0 auto; }
-      .proj-featured { grid-column: span 12; }
-      .proj-small { grid-column: span 6; }
-      .proj-wide { grid-template-columns: 1fr; }
-      .proj-wide .proj-img-wrap { height: 250px; }
-      .proj-wide .proj-body { padding: 2rem; }
-      .stack-grid { grid-template-columns: repeat(4, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
-      .exp-grid { gap: 3rem; }
-    }
-
-    @media (max-width: 768px) {
-      .section { padding: 5rem 0; }
-      
-      #navbar .container { position: relative; justify-content: center; }
-      .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); }
-      .nav-cta { display: none; }
-      .nav-toggle { display: flex; position: absolute; right: 1rem; }
-
-      .nav-links {
-        display: none;
-        position: fixed;
-        inset: 0;
-        top: 70px;
-        background: rgba(5, 5, 8, 0.98);
-        backdrop-filter: blur(30px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-        padding: 2rem;
-      }
-      
-      .nav-links.open { display: flex; }
-      .nav-links a { font-size: 1.2rem; letter-spacing: 5px; }
-
-      .hero-h1 { 
-        letter-spacing: -2px; 
-        font-size: clamp(2.8rem, 10vw, 4rem);
-      }
-      
-      .hero-desc { max-width: 100%; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-
-      .exp-grid { grid-template-columns: 1fr; }
-      .proj-small { grid-column: span 12; }
-      .stack-grid { grid-template-columns: repeat(3, 1fr); }
-      .contact-grid { gap: 3rem; }
-      
-      .section-title::after {
-        width: 60px;
-        height: 3px;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .container { padding: 0 1rem; }
-      #hero { padding: 8rem 0 4rem; }
-
-      .hero-h1 { font-size: 2.5rem; }
-      .hero-chips { gap: 0.5rem; }
-      .hero-chip { font-size: 0.65rem; padding: 0.5rem 1rem; }
-
-      .about-visual { max-width: 100%; }
-      .about-deco, .about-deco-2 { display: none; }
-
-      .proj-body { padding: 1.8rem; }
-      .proj-wide .proj-body { padding: 1.8rem; }
-      .proj-title { font-size: 1.3rem; }
-
-      .stack-grid { grid-template-columns: repeat(2, 1fr); }
-      .stack-cell { padding: 2rem 1rem; }
-      .stack-icon { font-size: 2rem; }
-
-      .contact-big-title { font-size: 2rem; }
-      .cv-card { flex-direction: column; align-items: flex-start; }
-      .cv-card .btn { width: 100%; justify-content: center; }
-
-      footer .container { flex-direction: column; text-align: center; }
-      .footer-socials { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-    }
-
-    @media (max-width: 380px) {
-      .hero-h1 { font-size: 2.2rem; }
-      .section-title { font-size: 2rem; }
-      .stack-grid { grid-template-columns: repeat(2, 1fr); }
-      .stack-cell { padding: 1.5rem 0.8rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Saltar para o conteúdo</a>
 
-  <!-- Cursor Premium -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="site-header">
+    <nav class="container nav" aria-label="Principal">
+      <a href="#hero" class="nav-logo" aria-label="Hulquene Roberto Ngola — início">HRN<span>.</span></a>
 
-  <!-- Loader Premium -->
-  <div id="loader">
-    <div class="loader-content">
-      <div class="loader-name">HRN<span>.</span></div>
-      <div class="loader-bar-container">
-        <div class="loader-bar-fill" id="loader-bar"></div>
-      </div>
-      <div class="loader-pct" id="loader-pct">0%</div>
-      <div class="loader-status">Inicializando sistema...</div>
-    </div>
-  </div>
-
-  <!-- Navbar Premium -->
-  <nav id="navbar">
-    <div class="container">
-      <a href="#hero" class="nav-logo">HRN<span class="dot">.</span></a>
-
-      <ul class="nav-links" id="nav-links">
+      <ul class="nav-links" data-nav>
         <li><a href="#about">Sobre</a></li>
         <li><a href="#experience">Experiência</a></li>
         <li><a href="#projects">Projetos</a></li>
@@ -2181,43 +63,65 @@
         <li><a href="#contact">Contato</a></li>
       </ul>
 
-      <a href="docs/curriculo-hulquene-v1.pdf" class="nav-cta" download>
-        <i class="ph ph-download-simple"></i> Currículo
-      </a>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+          <i class="ph ph-sun" aria-hidden="true"></i>
+          <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+        <a href="docs/curriculo-hulquene-v1.pdf" class="btn btn-secondary btn-sm nav-cta" download>
+          <i class="ph ph-download-simple" aria-hidden="true"></i> Currículo
+        </a>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>     
-  <!-- Hero Premium -->
-  <section id="hero">
-    <div class="particles" id="particles"></div>
-    <div class="hero-grid"></div>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="glow glow-3"></div>
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobile-menu" data-nav>
+    <ul>
+      <li><a href="#about">Sobre <i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      <li><a href="#experience">Experiência <i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      <li><a href="#projects">Projetos <i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      <li><a href="#stack">Stack <i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      <li><a href="#contact">Contato <i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+    </ul>
+    <a href="docs/curriculo-hulquene-v1.pdf" class="btn btn-primary" download>
+      <i class="ph ph-download-simple" aria-hidden="true"></i> Currículo
+    </a>
+  </div>
 
-    <div class="container">
-      <div class="hero-body">
-        <div class="hero-text">
-          <div class="hero-eyebrow">
-            <i class="ph ph-map-pin"></i> Angola — Disponível para projetos
-          </div>
+  <main id="main">
 
-          <h1 class="hero-h1">
-            <span class="line">Hulquene</span>
-            <span class="line">Roberto</span>
-            <span class="line">Ngola</span>
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg__grid"></div>
+        <div class="hero-bg__glow hero-bg__glow--1"></div>
+        <div class="hero-bg__glow hero-bg__glow--2"></div>
+      </div>
+
+      <div class="container hero-layout">
+        <div class="hero-anim">
+          <p class="hero-status">
+            <span class="pulse" aria-hidden="true"></span>
+            <i class="ph ph-map-pin" aria-hidden="true"></i> Angola — Disponível para projetos
+          </p>
+
+          <h1 class="hero-title" id="hero-title">
+            <span>Hulquene</span>
+            <span class="is-accent">Roberto</span>
+            <span class="is-muted">Ngola</span>
           </h1>
 
-          <div class="hero-chips">
-            <span class="hero-chip">Dev Full Stack</span>
-            <span class="hero-chip">DevOps Engineer</span>
-            <span class="hero-chip">Tech Lead</span>
-            <span class="hero-chip">4+ Anos</span>
-            <span class="hero-chip">Okutonda Tech</span>
-          </div>
+          <ul class="hero-roles" aria-label="Perfil">
+            <li>Dev Full Stack</li>
+            <li>DevOps Engineer</li>
+            <li>Backend</li>
+            <li>4+ Anos</li>
+            <li>Okutonda Tech</li>
+          </ul>
 
           <p class="hero-desc">
             Desenvolvimento de sistemas <strong>escaláveis e de alta qualidade</strong>.
@@ -2226,767 +130,480 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-fill">
-              Ver projetos <i class="ph ph-arrow-right"></i>
+            <a href="#projects" class="btn btn-primary">
+              Ver projetos <i class="ph ph-arrow-right" aria-hidden="true"></i>
             </a>
-            <a href="#contact" class="btn btn-outline">
-              Falar comigo
-            </a>
+            <a href="#contact" class="btn btn-secondary">Falar comigo</a>
           </div>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-n"><span data-count="4" data-suffix="+">0</span></div>
-            <div class="stat-l">Anos de<br>experiência</div>
+        <dl class="hero-stats">
+          <div class="stat">
+            <dt class="visually-hidden">Anos de experiência</dt>
+            <dd class="stat-n"><span data-count="4">4</span><span class="plus">+</span></dd>
+            <dd class="stat-l" aria-hidden="true">Anos de<br />experiência</dd>
           </div>
-          <div class="stat-card">
-            <div class="stat-n"><span data-count="10" data-suffix="+">0</span></div>
-            <div class="stat-l">Projetos<br>entregues</div>
+          <div class="stat">
+            <dt class="visually-hidden">Projetos entregues</dt>
+            <dd class="stat-n"><span data-count="10">10</span><span class="plus">+</span></dd>
+            <dd class="stat-l" aria-hidden="true">Projetos<br />entregues</dd>
           </div>
-          <div class="stat-card">
-            <div class="stat-n"><span data-count="5" data-suffix="+">0</span></div>
-            <div class="stat-l">Linguagens<br>dominadas</div>
+          <div class="stat">
+            <dt class="visually-hidden">Linguagens dominadas</dt>
+            <dd class="stat-n"><span data-count="5">5</span><span class="plus">+</span></dd>
+            <dd class="stat-l" aria-hidden="true">Linguagens<br />dominadas</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section id="about" class="section section--alt" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Sobre mim</p>
+          <h2 class="section-title" id="about-title">Quem sou eu</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="reveal">
+              Sou <strong>desenvolvedor pleno</strong> com mais de 4 anos de experiência em desenvolvimento
+              full-stack e práticas de DevOps. Tenho domínio de tecnologias e ferramentas modernas,
+              com paixão por criar soluções que são não apenas funcionais, mas também
+              <strong>robustas, escaláveis e alinhadas às necessidades do negócio</strong>.
+            </p>
+            <p class="reveal" style="--delay: 80ms">
+              Atualmente estou a concluir a minha formação em <strong>Engenharia Informática</strong>
+              pela Universidade Católica de Angola (UCAN), unindo a prática profissional com uma
+              base teórica sólida. Meu objetivo é migrar gradualmente para áreas de
+              <strong>liderança técnica e gestão de projetos</strong>.
+            </p>
+
+            <div class="tag-groups reveal" style="--delay: 120ms">
+              <div class="tag-group">
+                <h3 class="label label--slash">Linguagens</h3>
+                <ul>
+                  <li class="tag">PHP</li><li class="tag">Python</li><li class="tag">Java SE/EE</li>
+                  <li class="tag">Dart/Flutter</li><li class="tag">JavaScript</li><li class="tag">Go</li>
+                </ul>
+              </div>
+              <div class="tag-group">
+                <h3 class="label label--slash">Frameworks & Libs</h3>
+                <ul>
+                  <li class="tag">Laravel</li><li class="tag">CodeIgniter</li><li class="tag">Spring Boot</li>
+                  <li class="tag">Django</li><li class="tag">React JS</li><li class="tag">Node.js</li>
+                  <li class="tag">Flutter</li>
+                </ul>
+              </div>
+              <div class="tag-group">
+                <h3 class="label label--slash">DevOps & Cloud</h3>
+                <ul>
+                  <li class="tag">Docker</li><li class="tag">CI/CD</li><li class="tag">GitHub Actions</li>
+                  <li class="tag">VPS/CPanel</li><li class="tag">AWS básico</li><li class="tag">RabbitMQ</li>
+                  <li class="tag">Redis</li>
+                </ul>
+              </div>
+              <div class="tag-group">
+                <h3 class="label label--slash">Banco de Dados</h3>
+                <ul>
+                  <li class="tag">MySQL</li><li class="tag">PostgreSQL</li>
+                  <li class="tag">SQLite</li><li class="tag">Redis</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="skills reveal" style="--delay: 160ms">
+              <h3 class="label label--slash">Proficiência técnica</h3>
+              <div class="bar">
+                <div class="bar-head"><span class="bar-name">PHP / Laravel / CodeIgniter</span><span class="bar-pct">80%</span></div>
+                <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--w: 80%"></div></div>
+              </div>
+              <div class="bar">
+                <div class="bar-head"><span class="bar-name">Docker / DevOps</span><span class="bar-pct">55%</span></div>
+                <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--w: 55%"></div></div>
+              </div>
+              <div class="bar">
+                <div class="bar-head"><span class="bar-name">Java / Spring Boot</span><span class="bar-pct">65%</span></div>
+                <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--w: 65%"></div></div>
+              </div>
+              <div class="bar">
+                <div class="bar-head"><span class="bar-name">Python / Django</span><span class="bar-pct">60%</span></div>
+                <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--w: 60%"></div></div>
+              </div>
+              <div class="bar">
+                <div class="bar-head"><span class="bar-name">Flutter / Dart</span><span class="bar-pct">52%</span></div>
+                <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--w: 52%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="about-visual reveal" style="--delay: 100ms">
+            <figure class="about-photo">
+              <img src="images/foto1.png" alt="Retrato de Hulquene Roberto Ngola" width="864" height="1184" loading="lazy" decoding="async" />
+              <figcaption class="about-photo-badge"><i class="ph ph-map-pin" aria-hidden="true"></i> Hulquene Ngola</figcaption>
+            </figure>
+
+            <div class="about-linkedin">
+              <div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="hulquene-roberto-ngola-66b849227" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ao.linkedin.com/in/hulquene-roberto-ngola-66b849227?trk=profile-badge"></a></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIÊNCIA ===================== -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Trajetória</p>
+          <h2 class="section-title" id="experience-title">Experiência & Formação</h2>
+        </header>
+
+        <div class="exp-grid">
+          <div class="exp-col reveal">
+            <h3 class="exp-col-title">Experiência Profissional</h3>
+            <ol class="timeline">
+              <li class="tl-item">
+                <p class="tl-year">2026 — Atual</p>
+                <h4 class="tl-role">Desenvolvedor Pleno full-stack</h4>
+                <p class="tl-company">ElengeAfrika Lda</p>
+                <p class="tl-desc">Liderança técnica, distribuição de tarefas, mentoria de equipe, revisão de código e boas práticas em projetos PHP, Java e Python. Contato direto com clientes e stakeholders.</p>
+              </li>
+              <li class="tl-item">
+                <p class="tl-year">2024 — 2025</p>
+                <h4 class="tl-role">DevOps & Backend Laravel</h4>
+                <p class="tl-company">Freelancer — Petabyte</p>
+                <p class="tl-desc">Containers Docker, pipelines CI/CD com GitHub Actions, APIs REST com Laravel Passport, integração de APIs externas e suporte na definição de arquitetura de software.</p>
+              </li>
+              <li class="tl-item">
+                <p class="tl-year">2022 — 2023</p>
+                <h4 class="tl-role">DevOps Engineer</h4>
+                <p class="tl-company">ElengeAfrika Lda</p>
+                <p class="tl-desc">Criação e gestão de ambientes Docker Compose, pipelines CI/CD automatizados, deploy em VPS/CPanel e controle de versões com GitHub Actions.</p>
+              </li>
+              <li class="tl-item">
+                <p class="tl-year">2021 — 2022</p>
+                <h4 class="tl-role">Backend Developer</h4>
+                <p class="tl-company">ElengeAfrika Lda</p>
+                <p class="tl-desc">Manutenção de sistemas em Python, Java e Go. Refatoração de código, correção de bugs críticos, otimização de APIs e documentação técnica.</p>
+              </li>
+              <li class="tl-item">
+                <p class="tl-year">2020 — 2021</p>
+                <h4 class="tl-role">Desenvolvedor Web</h4>
+                <p class="tl-company">Freelancer</p>
+                <p class="tl-desc">Módulos com CodeIgniter e Laravel, APIs RESTful, integração com sistemas externos e otimização de bancos de dados.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="exp-col">
+            <div class="reveal" style="--delay: 80ms">
+              <h3 class="exp-col-title">Formação Académica</h3>
+              <ol class="timeline">
+                <li class="tl-item">
+                  <p class="tl-year">Em andamento — 2025</p>
+                  <h4 class="tl-role">Engenharia Informática</h4>
+                  <p class="tl-company">UCAN — Universidade Católica de Angola</p>
+                  <p class="tl-desc">4º Ano da Licenciatura, com foco em desenvolvimento de software, redes de computadores, banco de dados e engenharia de requisitos.</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="reveal" style="--delay: 140ms">
+              <h3 class="exp-col-title">Certificações</h3>
+              <ul class="timeline">
+                <li class="tl-item">
+                  <h4 class="tl-role">Bootcamp Java & Angular</h4>
+                  <p class="tl-company">DIO</p>
+                  <p class="tl-desc">Spring Boot, Fundamentos de Java, Git & GitHub, Maven e Gradle, Desenvolvimento Full Stack.</p>
+                </li>
+                <li class="tl-item">
+                  <h4 class="tl-role">Python — Módulos Básico e Avançado</h4>
+                  <p class="tl-company">Fatec / Huawei & Santander Open Academy</p>
+                  <p class="tl-desc">Estruturas de dados, algoritmos, automação e desenvolvimento com Django.</p>
+                </li>
+                <li class="tl-item">
+                  <h4 class="tl-role">Gestão de Projetos & Estruturas de Dados</h4>
+                  <p class="tl-company">LinkedIn Learning</p>
+                  <p class="tl-desc">Fundamentos de Gestão de Projetos: Integração e Fundamentos de Programação.</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
+    <!-- ===================== PROJETOS ===================== -->
+    <section id="projects" class="section section--alt" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Portfólio</p>
+          <h2 class="section-title" id="projects-title">Projetos em destaque</h2>
+        </header>
 
-  <!-- About Premium -->
-  <section id="about" class="section section-alt">
-    <div class="container">
-      <div class="section-eyebrow">Sobre mim</div>
-      <h2 class="section-title">Quem sou eu</h2>
+        <!--
+          Para adicionar links de demo e código a um projeto, substitui o link "Detalhes" por:
+            <a href="URL_DEMO" class="link-arrow" target="_blank" rel="noopener">Demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+            <a href="URL_GITHUB" class="link-arrow" target="_blank" rel="noopener">Código <i class="ph ph-github-logo" aria-hidden="true"></i></a>
+        -->
+        <div class="projects-grid">
 
-      <div class="about-grid">
-        <div class="about-body">
-          <p class="reveal">
-            Sou <strong>desenvolvedor pleno</strong> com mais de 4 anos de experiência em desenvolvimento
-            full-stack e práticas de DevOps. Tenho domínio de tecnologias e ferramentas modernas,
-            com paixão por criar soluções que são não apenas funcionais, mas também
-            <strong>robustas, escaláveis e alinhadas às necessidades do negócio</strong>.
-          </p>
-          <p class="reveal reveal-d1">
-            Atualmente estou a concluir a minha formação em <strong>Engenharia Informática</strong>
-            pela Universidade Católica de Angola (UCAN), unindo a prática profissional com uma
-            base teórica sólida. Meu objetivo é migrar gradualmente para áreas de
-            <strong>liderança técnica e gestão de projetos</strong>.
-          </p>
+          <article class="project-card project-card--featured reveal">
+            <div class="project-media">
+              <img src="images/project/saas-erp-elengeafrika.png" alt="Captura de ecrã do Powerfull CRM & ERP" width="1366" height="768" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">PHP</li><li class="badge">Codeigniter</li><li class="badge">MySQL</li>
+                <li class="badge">Cpanel</li><li class="badge">SaaS</li><li class="badge">API REST</li>
+              </ul>
+              <h3 class="project-title">Powerfull CRM & ERP</h3>
+              <p class="project-desc">SaaS de gestão empresarial com manutenção em múltiplos servidores, garantindo alta disponibilidade. Módulos personalizados: <em>SAF-T Angola</em> (exportação fiscal) e <em>CargoWise Integration</em> (logística internacional).</p>
+              <div class="project-clients">
+                <p class="label">Clientes</p>
+                <ul>
+                  <li>Angola Cables</li><li>DHL</li><li>MwangoBrain</li><li>INACOM</li>
+                </ul>
+              </div>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
 
-          <div class="about-tags-section reveal reveal-d2">
-            <span class="tags-label">Linguagens</span>
-            <div class="tag-row">
-              <span class="tag">PHP</span><span class="tag">Python</span>
-              <span class="tag">Java SE/EE</span><span class="tag">Dart/Flutter</span>
-              <span class="tag">JavaScript</span><span class="tag">Go</span>
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="images/project/escola-matricula.png" alt="Captura de ecrã do Okenda.EDU" width="1868" height="942" loading="lazy" decoding="async" />
             </div>
-            <span class="tags-label">Frameworks & Libs</span>
-            <div class="tag-row">
-              <span class="tag">Laravel</span><span class="tag">CodeIgniter</span>
-              <span class="tag">Spring Boot</span><span class="tag">Django</span>
-              <span class="tag">React JS</span><span class="tag">Node.js</span>
-              <span class="tag">Flutter</span>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">PHP</li><li class="badge">Laravel</li><li class="badge">MySQL</li>
+              </ul>
+              <h3 class="project-title">Okenda.EDU</h3>
+              <p class="project-desc">Sistema académico avançado para gestão escolar: matrículas, notas, horários e comunicação interna.</p>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
             </div>
-            <span class="tags-label">DevOps & Cloud</span>
-            <div class="tag-row">
-              <span class="tag">Docker</span><span class="tag">CI/CD</span>
-              <span class="tag">GitHub Actions</span><span class="tag">VPS/CPanel</span>
-              <span class="tag">AWS básico</span><span class="tag">RabbitMQ</span>
-              <span class="tag">Redis</span>
-            </div>
-            <span class="tags-label">Banco de Dados</span>
-            <div class="tag-row">
-              <span class="tag">MySQL</span><span class="tag">PostgreSQL</span>
-              <span class="tag">SQLite</span><span class="tag">Redis</span>
-            </div>
-          </div>
+          </article>
 
-          <div class="bars reveal reveal-d3">
-            <span class="tags-label" style="margin-top:2.5rem;display:block">Proficiência técnica</span>
-            <div class="bar-item">
-              <div class="bar-header"><span class="bar-name">PHP / Laravel / CodeIgniter</span><span class="bar-pct">80%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-w="80"></div></div>
+          <article class="project-card reveal" style="--delay: 60ms">
+            <div class="project-media">
+              <img src="images/project/okenda-edu.png" alt="Captura de ecrã do Okwenda - ERP" width="1651" height="907" loading="lazy" decoding="async" />
             </div>
-            <div class="bar-item">
-              <div class="bar-header"><span class="bar-name">Docker / DevOps</span><span class="bar-pct">55%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-w="55"></div></div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">PHP</li><li class="badge">Laravel</li><li class="badge">API REST</li>
+                <li class="badge">SAAS</li><li class="badge">Multi-Tenancy</li><li class="badge">Multi-Database</li>
+              </ul>
+              <h3 class="project-title">Okwenda - ERP</h3>
+              <p class="project-desc">Aplicativo de ponto de venda (PDV) com integração segura via API REST, sincronização em tempo real com plataforma web e atualizações robustas de funcionalidades.</p>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Ver detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
             </div>
-            <div class="bar-item">
-              <div class="bar-header"><span class="bar-name">Java / Spring Boot</span><span class="bar-pct">65%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-w="65"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-header"><span class="bar-name">Python / Django</span><span class="bar-pct">60%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-w="60"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-header"><span class="bar-name">Flutter / Dart</span><span class="bar-pct">52%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-w="52"></div></div>
-            </div>
-          </div>
-        </div>
+          </article>
 
-        <div class="about-visual reveal reveal-d2">
-          <div class="about-frame">
-            <img src="images/foto1.png" alt="Hulquene Roberto Ngola" loading="lazy" />
-            <div class="about-frame-overlay"></div>
-            <div class="about-frame-badge"><i class="ph ph-map-pin"></i> Hulquene Ngola</div>
-          </div>
-          <div class="about-deco"></div>
-          <div class="about-deco-2"></div>
-          <div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="hulquene-roberto-ngola-66b849227" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ao.linkedin.com/in/hulquene-roberto-ngola-66b849227?trk=profile-badge"></a></div>
-              
+          <!-- NOTA: este cartão repete o primeiro projeto (mudam só as tecnologias). Considera removê-lo ou fundi-lo. -->
+          <article class="project-card reveal" style="--delay: 120ms">
+            <div class="project-media">
+              <img src="images/project/saas-erp-elengeafrika.png" alt="Captura de ecrã do Powerfull CRM & ERP" width="1366" height="768" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">PHP</li><li class="badge">Laravel</li><li class="badge">MySQL</li>
+                <li class="badge">Docker</li><li class="badge">SaaS</li>
+              </ul>
+              <h3 class="project-title">Powerfull CRM & ERP</h3>
+              <p class="project-desc">SaaS de gestão empresarial com manutenção em múltiplos servidores, garantindo alta disponibilidade. Módulos personalizados: <em>SAF-T Angola</em> (exportação fiscal) e <em>CargoWise Integration</em> (logística internacional).</p>
+              <div class="project-clients">
+                <p class="label">Clientes</p>
+                <ul>
+                  <li>Angola Cables</li><li>DHL</li><li>MwangoBrain</li><li>INACOM</li>
+                </ul>
+              </div>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="images/project/site-okutonda-v1.png" alt="Captura de ecrã do Website OKutondas" width="1900" height="885" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">HTML</li><li class="badge">Boostrap5</li><li class="badge">JS</li>
+              </ul>
+              <h3 class="project-title">Website OKutondas</h3>
+              <p class="project-desc">Website</p>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Ver detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- NOTA: os dois cartões "Sistemas Open Source" têm o mesmo texto; e a imagem deste é a do site Okutonda. -->
+          <article class="project-card reveal" style="--delay: 60ms">
+            <div class="project-media">
+              <img src="images/project/site-okutonda-v1.png" alt="Captura de ecrã de Sistemas Open Source" width="1900" height="885" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">Java</li><li class="badge">Python</li><li class="badge">Angular</li><li class="badge">PHP</li>
+              </ul>
+              <h3 class="project-title">Sistemas Open Source</h3>
+              <p class="project-desc">Manutenção e gestão de Apache Fineract, Mifos, RapidPro, NextCloud e DHIS2.</p>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" style="--delay: 120ms">
+            <div class="project-media project-media--contain">
+              <img src="images/project/site-mobile.png" alt="Captura de ecrã mobile de Sistemas Open Source" width="372" height="811" loading="lazy" decoding="async" />
+            </div>
+            <div class="project-body">
+              <ul class="badges" aria-label="Tecnologias">
+                <li class="badge">Java</li><li class="badge">Python</li><li class="badge">Angular</li><li class="badge">PHP</li>
+              </ul>
+              <h3 class="project-title">Sistemas Open Source</h3>
+              <p class="project-desc">Manutenção e gestão de Apache Fineract, Mifos, RapidPro, NextCloud e DHIS2.</p>
+              <div class="project-footer">
+                <a href="#" class="link-arrow">Detalhes <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
+    </section>
+
+    <!-- ===================== MARQUEE (decorativo) ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <ul class="marquee-list">
+          <li>PHP</li><li>Java</li><li>Laravel</li><li>Spring Boot</li><li>Docker</li><li>Python</li><li>Flutter</li>
+          <li>React</li><li>CI/CD</li><li>DevOps</li><li>MySQL</li><li>Node.js</li><li>PostgreSQL</li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-  <!-- Experience Premium -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-eyebrow">Trajetória</div>
-      <h2 class="section-title">Experiência & Formação</h2>
+    <!-- ===================== STACK ===================== -->
+    <!-- Ícones: Devicon 2.16.0 (SVG aplicados como máscara; a cor vem do tema e --brand no hover) -->
+    <section id="stack" class="section" aria-labelledby="stack-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Tecnologias</p>
+          <h2 class="section-title" id="stack-title">Stack completa</h2>
+        </header>
 
-      <div class="exp-grid">
-        <div class="reveal">
-          <div class="exp-col-head">Experiência Profissional</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-year">2026 — Atual</div>
-              <div class="tl-company">ElengeAfrika Lda</div>
-              <div class="tl-role">Tech Lead / Dev Sênior</div>
-              <div class="tl-desc">Liderança técnica, distribuição de tarefas, mentoria de equipe, revisão de código e boas práticas em projetos PHP, Java e Python. Contato direto com clientes e stakeholders.</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2024 — 2025</div>
-              <div class="tl-company">Freelancer — Petabyte</div>
-              <div class="tl-role">DevOps & Backend Laravel</div>
-              <div class="tl-desc">Containers Docker, pipelines CI/CD com GitHub Actions, APIs REST com Laravel Passport, integração de APIs externas e suporte na definição de arquitetura de software.</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2022 — 2023</div>
-              <div class="tl-company">ElengeAfrika Lda</div>
-              <div class="tl-role">DevOps Engineer</div>
-              <div class="tl-desc">Criação e gestão de ambientes Docker Compose, pipelines CI/CD automatizados, deploy em VPS/CPanel e controle de versões com GitHub Actions.</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2021 — 2022</div>
-              <div class="tl-company">ElengeAfrika Lda</div>
-              <div class="tl-role">Backend Developer</div>
-              <div class="tl-desc">Manutenção de sistemas em Python, Java e Go. Refatoração de código, correção de bugs críticos, otimização de APIs e documentação técnica.</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2020 — 2021</div>
-              <div class="tl-company">Freelancer</div>
-              <div class="tl-role">Desenvolvedor Web</div>
-              <div class="tl-desc">Módulos com CodeIgniter e Laravel, APIs RESTful, integração com sistemas externos e otimização de bancos de dados.</div>
-            </div>
-          </div>
-        </div>
+        <ul class="stack-grid reveal">
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/php/php-plain.svg); --brand: #777bb4"></span><span class="stack-name">PHP</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/java/java-plain.svg); --brand: #e76f00"></span><span class="stack-name">Java</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/python/python-plain.svg); --brand: #3776ab"></span><span class="stack-name">Python</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/dart/dart-plain.svg); --brand: #0175c2"></span><span class="stack-name">Dart</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/javascript/javascript-plain.svg); --brand: #e5c600"></span><span class="stack-name">JavaScript</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/go/go-plain.svg); --brand: #00add8"></span><span class="stack-name">Go</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/laravel/laravel-original.svg); --brand: #ff2d20"></span><span class="stack-name">Laravel</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/spring/spring-original.svg); --brand: #6db33f"></span><span class="stack-name">Spring Boot</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/django/django-plain.svg); --brand: #44b78b"></span><span class="stack-name">Django</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/react/react-original.svg); --brand: #38bdf8"></span><span class="stack-name">React JS</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/flutter/flutter-plain.svg); --brand: #42a5f5"></span><span class="stack-name">Flutter</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/nodejs/nodejs-plain.svg); --brand: #5fa04e"></span><span class="stack-name">Node.js</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/docker/docker-plain.svg); --brand: #2496ed"></span><span class="stack-name">Docker</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/githubactions/githubactions-plain.svg); --brand: #2088ff"></span><span class="stack-name">CI/CD</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/mysql/mysql-original.svg); --brand: #4479a1"></span><span class="stack-name">MySQL</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/postgresql/postgresql-plain.svg); --brand: #4f8cc9"></span><span class="stack-name">PostgreSQL</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/redis/redis-plain.svg); --brand: #ff4438"></span><span class="stack-name">Redis</span></li>
+          <li class="stack-item"><span class="stack-icon" aria-hidden="true" style="--icon: url(https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg); --brand: #ff9900"></span><span class="stack-name">AWS</span></li>
+        </ul>
+      </div>
+    </section>
 
-        <div>
+    <!-- ===================== CONTACTO ===================== -->
+    <section id="contact" class="section section--alt" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow reveal">Contato</p>
+
+        <div class="contact-grid">
           <div class="reveal">
-            <div class="exp-col-head">Formação Académica</div>
-            <div class="timeline">
-              <div class="tl-item">
-                <div class="tl-year">Em andamento — 2025</div>
-                <div class="tl-company">UCAN — Universidade Católica de Angola</div>
-                <div class="tl-role">Engenharia Informática</div>
-                <div class="tl-desc">4º Ano da Licenciatura, com foco em desenvolvimento de software, redes de computadores, banco de dados e engenharia de requisitos.</div>
-              </div>
-            </div>
+            <h2 class="contact-title" id="contact-title">Vamos<br />trabalhar<br /><span class="is-accent">juntos?</span></h2>
+            <p class="contact-sub">Estou disponível para projetos freelance, consultoria técnica e oportunidades de emprego. Entre em contacto — responderei brevemente.</p>
+
+            <ul class="channels">
+              <li>
+                <a href="mailto:hulquene.ngola@gmail.com" class="channel">
+                  <span class="ch-icon" aria-hidden="true"><i class="ph ph-envelope"></i></span>
+                  <span class="ch-text"><span class="ch-label">Email</span><span class="ch-value">hulquene.ngola@gmail.com</span></span>
+                  <i class="ph ph-arrow-up-right ch-arrow" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/244941419025" target="_blank" rel="noopener" class="channel">
+                  <span class="ch-icon" aria-hidden="true"><i class="ph ph-whatsapp-logo"></i></span>
+                  <span class="ch-text"><span class="ch-label">WhatsApp / Telefone</span><span class="ch-value">(+244) 941 419 025</span></span>
+                  <i class="ph ph-arrow-up-right ch-arrow" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener" class="channel">
+                  <span class="ch-icon" aria-hidden="true"><i class="ph ph-linkedin-logo"></i></span>
+                  <span class="ch-text"><span class="ch-label">LinkedIn</span><span class="ch-value">hulquene-roberto-ngola</span></span>
+                  <i class="ph ph-arrow-up-right ch-arrow" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/hulquene" target="_blank" rel="noopener" class="channel">
+                  <span class="ch-icon" aria-hidden="true"><i class="ph ph-github-logo"></i></span>
+                  <span class="ch-text"><span class="ch-label">GitHub</span><span class="ch-value">github.com/hulquene</span></span>
+                  <i class="ph ph-arrow-up-right ch-arrow" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <div class="reveal reveal-d2" style="margin-top:3.5rem">
-            <div class="exp-col-head">Certificações</div>
-            <div class="timeline">
-              <div class="tl-item">
-                <div class="tl-company">DIO</div>
-                <div class="tl-role">Bootcamp Java & Angular</div>
-                <div class="tl-desc">Spring Boot, Fundamentos de Java, Git & GitHub, Maven e Gradle, Desenvolvimento Full Stack.</div>
-              </div>
-              <div class="tl-item">
-                <div class="tl-company">Fatec / Huawei & Santander Open Academy</div>
-                <div class="tl-role">Python — Módulos Básico e Avançado</div>
-                <div class="tl-desc">Estruturas de dados, algoritmos, automação e desenvolvimento com Django.</div>
-              </div>
-              <div class="tl-item">
-                <div class="tl-company">LinkedIn Learning</div>
-                <div class="tl-role">Gestão de Projetos & Estruturas de Dados</div>
-                <div class="tl-desc">Fundamentos de Gestão de Projetos: Integração e Fundamentos de Programação.</div>
-              </div>
+          <div class="reveal" style="--delay: 100ms">
+            <div class="contact-map">
+              <p class="map-badge"><i class="ph ph-map-pin" aria-hidden="true"></i> Luanda, Angola</p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7885.388624641325!2d13.251802300000008!3d-8.814761499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sao!4v1750326207540!5m2!1spt-PT!2sao"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa: Luanda, Angola"></iframe>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Projects Premium -->
-  <section id="projects" class="section section-alt">
-    <div class="container">
-      <div class="section-eyebrow">Portfólio</div>
-      <h2 class="section-title">Projetos em destaque</h2>
-
-      <div class="projects-grid">
-
-        <div class="proj-card proj-featured reveal">
-          <div class="proj-img-wrap">
-            <img src="images/project/saas-erp-elengeafrika.png" alt="Powerfull CRM & ERP" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">PHP</span><span class="proj-tag">Codeigniter</span>
-              <span class="proj-tag">MySQL</span><span class="proj-tag">Cpanel</span><span class="proj-tag">SaaS</span><span class="proj-tag">API REST</span>
-            </div>
-            <div class="proj-title">Powerfull CRM & ERP</div>
-            <div class="proj-desc">SaaS de gestão empresarial com manutenção em múltiplos servidores, garantindo alta disponibilidade. Módulos personalizados: <em>SAF-T Angola</em> (exportação fiscal) e <em>CargoWise Integration</em> (logística internacional).</div>
-            <div class="proj-footer">
+            <div class="cv-card">
               <div>
-                <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem">Clientes</div>
-                <div class="proj-clients">
-                  <span class="client-badge">Angola Cables</span>
-                  <span class="client-badge">DHL</span>
-                  <span class="client-badge">MwangoBrain</span>
-                  <span class="client-badge">INACOM</span>
-                </div>
+                <p class="cv-card-label">Currículo completo</p>
+                <p class="cv-card-title">Baixar meu CV</p>
               </div>
-              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card proj-small reveal reveal-d1">
-          <div class="proj-img-wrap">
-            <img src="images/project/escola-matricula.png" alt="Eafrika.EDU" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span><span class="proj-tag">MySQL</span>
-            </div>
-            <div class="proj-title">Okenda.EDU</div>
-            <div class="proj-desc">Sistema académico avançado para gestão escolar: matrículas, notas, horários e comunicação interna.</div>
-            <div class="proj-footer" style="padding-top:1.2rem;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end">
-              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-         <div class="proj-card proj-wide reveal">
-          <div class="proj-img-wrap">
-            <img src="images/project/okenda-edu.png" alt="EA POS Mobile" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span><span class="proj-tag">API REST</span><span class="proj-tag">SAAS</span><span class="proj-tag">Multi-Tenancy</span><span class="proj-tag">Multi-Database</span>
-            </div>
-            <div class="proj-title">Okwenda - ERP</div>
-            <div class="proj-desc">Aplicativo de ponto de venda (PDV) com integração segura via API REST, sincronização em tempo real com plataforma web e atualizações robustas de funcionalidades.</div>
-            <div style="margin-top:2rem">
-              <a href="#" class="proj-link">Ver detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card proj-featured reveal">
-          <div class="proj-img-wrap">
-            <img src="images/project/saas-erp-elengeafrika.png" alt="Powerfull CRM & ERP" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span>
-              <span class="proj-tag">MySQL</span><span class="proj-tag">Docker</span><span class="proj-tag">SaaS</span>
-            </div>
-            <div class="proj-title">Powerfull CRM & ERP</div>
-            <div class="proj-desc">SaaS de gestão empresarial com manutenção em múltiplos servidores, garantindo alta disponibilidade. Módulos personalizados: <em>SAF-T Angola</em> (exportação fiscal) e <em>CargoWise Integration</em> (logística internacional).</div>
-            <div class="proj-footer">
-              <div>
-                <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem">Clientes</div>
-                <div class="proj-clients">
-                  <span class="client-badge">Angola Cables</span>
-                  <span class="client-badge">DHL</span>
-                  <span class="client-badge">MwangoBrain</span>
-                  <span class="client-badge">INACOM</span>
-                </div>
-              </div>
-              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card proj-wide reveal">
-          <div class="proj-img-wrap">
-            <img src="images/project/site-okutonda-v1.png" alt="EA POS Mobile" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">HTML</span><span class="proj-tag">Boostrap5</span><span class="proj-tag">JS</span>
-            </div>
-            <div class="proj-title">Website OKutondas</div>
-            <div class="proj-desc">Website</div>
-            <div style="margin-top:2rem">
-              <a href="#" class="proj-link">Ver detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card proj-small reveal reveal-d2">
-          <div class="proj-img-wrap">
-            <img src="images/project/site-okutonda-v1.png" alt="Sistemas Open Source" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">Java</span><span class="proj-tag">Python</span>
-              <span class="proj-tag">Angular</span><span class="proj-tag">PHP</span>
-            </div>
-            <div class="proj-title">Sistemas Open Source</div>
-            <div class="proj-desc">Manutenção e gestão de Apache Fineract, Mifos, RapidPro, NextCloud e DHIS2.</div>
-            <div class="proj-footer" style="padding-top:1.2rem;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end">
-              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="proj-card proj-small reveal reveal-d2">
-          <div class="proj-img-wrap">
-            <img src="images/project/site-mobile.png" alt="Sistemas Open Source" loading="lazy" />
-          </div>
-          <div class="proj-body">
-            <div class="proj-tags">
-              <span class="proj-tag">Java</span><span class="proj-tag">Python</span>
-              <span class="proj-tag">Angular</span><span class="proj-tag">PHP</span>
-            </div>
-            <div class="proj-title">Sistemas Open Source</div>
-            <div class="proj-desc">Manutenção e gestão de Apache Fineract, Mifos, RapidPro, NextCloud e DHIS2.</div>
-            <div class="proj-footer" style="padding-top:1.2rem;border-top:1px solid var(--border);margin-top:auto;display:flex;justify-content:flex-end">
-              <a href="#" class="proj-link">Detalhes <i class="ph ph-arrow-up-right"></i></a>
+              <a href="docs/curriculo-hulquene-v1.pdf" class="btn btn-primary" download>
+                <i class="ph ph-download-simple" aria-hidden="true"></i> Download
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Marquee Premium -->
-  <div class="marquee-outer">
-    <div class="marquee-track" id="marquee-track"></div>
-  </div>
+  </main>
 
-  <!-- Stack Premium -->
-  <section id="stack" class="section">
-    <div class="container">
-      <div class="section-eyebrow">Tecnologias</div>
-      <h2 class="section-title">Stack completa</h2>
-
-      <div class="stack-grid reveal">
-        <div class="stack-cell"><span class="stack-icon">🐘</span><div class="stack-name">PHP</div></div>
-        <div class="stack-cell"><span class="stack-icon">☕</span><div class="stack-name">Java</div></div>
-        <div class="stack-cell"><span class="stack-icon">🐍</span><div class="stack-name">Python</div></div>
-        <div class="stack-cell"><span class="stack-icon">🎯</span><div class="stack-name">Dart</div></div>
-        <div class="stack-cell"><span class="stack-icon">🟨</span><div class="stack-name">JavaScript</div></div>
-        <div class="stack-cell"><span class="stack-icon">🔷</span><div class="stack-name">Go</div></div>
-        <div class="stack-cell"><span class="stack-icon">🔴</span><div class="stack-name">Laravel</div></div>
-        <div class="stack-cell"><span class="stack-icon">🍃</span><div class="stack-name">Spring Boot</div></div>
-        <div class="stack-cell"><span class="stack-icon">🌿</span><div class="stack-name">Django</div></div>
-        <div class="stack-cell"><span class="stack-icon">⚛️</span><div class="stack-name">React JS</div></div>
-        <div class="stack-cell"><span class="stack-icon">💙</span><div class="stack-name">Flutter</div></div>
-        <div class="stack-cell"><span class="stack-icon">🟢</span><div class="stack-name">Node.js</div></div>
-        <div class="stack-cell"><span class="stack-icon">🐳</span><div class="stack-name">Docker</div></div>
-        <div class="stack-cell"><span class="stack-icon">⚙️</span><div class="stack-name">CI/CD</div></div>
-        <div class="stack-cell"><span class="stack-icon">🗄️</span><div class="stack-name">MySQL</div></div>
-        <div class="stack-cell"><span class="stack-icon">🐘</span><div class="stack-name">PostgreSQL</div></div>
-        <div class="stack-cell"><span class="stack-icon">🔴</span><div class="stack-name">Redis</div></div>
-        <div class="stack-cell"><span class="stack-icon">☁️</span><div class="stack-name">AWS</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Premium -->
-  <section id="contact" class="section section-alt">
-    <div class="container">
-      <div class="section-eyebrow">Contato</div>
-
-      <div class="contact-grid">
-        <div class="reveal">
-          <h2 class="contact-big-title">Vamos<br>trabalhar<br><span class="accent">juntos?</span></h2>
-          <p class="contact-sub">Estou disponível para projetos freelance, consultoria técnica e oportunidades de emprego. Entre em contacto — responderei brevemente.</p>
-
-          <div class="channels">
-            <a href="mailto:hulquene.ngola@gmail.com" class="channel">
-              <div class="ch-icon"><i class="ph ph-envelope"></i></div>
-              <div><span class="ch-label">Email</span><span class="ch-value">hulquene.ngola@gmail.com</span></div>
-            </a>
-            <a href="https://wa.me/244941419025" target="_blank" rel="noopener" class="channel">
-              <div class="ch-icon"><i class="ph ph-whatsapp-logo"></i></div>
-              <div><span class="ch-label">WhatsApp / Telefone</span><span class="ch-value">(+244) 941 419 025</span></div>
-            </a>
-            <a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener" class="channel">
-              <div class="ch-icon"><i class="ph ph-linkedin-logo"></i></div>
-              <div><span class="ch-label">LinkedIn</span><span class="ch-value">hulquene-roberto-ngola</span></div>
-            </a>
-            <a href="https://github.com/hulquene" target="_blank" rel="noopener" class="channel">
-              <div class="ch-icon"><i class="ph ph-github-logo"></i></div>
-              <div><span class="ch-label">GitHub</span><span class="ch-value">github.com/hulquene</span></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal reveal-d2">
-          <div class="contact-map">
-            <div class="map-badge"><i class="ph ph-map-pin"></i> Luanda, Angola</div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7885.388624641325!2d13.251802300000008!3d-8.814761499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sao!4v1750326207540!5m2!1spt-PT!2sao"
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Luanda, Angola"></iframe>
-          </div>
-          <div class="cv-card">
-            <div>
-              <div class="cv-card-label">Currículo completo</div>
-              <div class="cv-card-title">Baixar meu CV</div>
-            </div>
-            <a href="docs/curriculo-hulquene-v1.pdf" class="btn btn-fill" download>
-              <i class="ph ph-download-simple"></i> Download
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Premium -->
-  <footer>
-    <div class="container">
-      <div class="footer-copy">2025 Hulquene Roberto Ngola — Todos os direitos reservados</div>
-      <div class="footer-socials">
-        <a href="https://github.com/hulquene" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:hulquene.ngola@gmail.com">Email</a>
-        <a href="docs/curriculo-hulquene-v1.pdf" download>CV</a>
-      </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© <span id="year">2025</span> Hulquene Roberto Ngola — Todos os direitos reservados</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hulquene" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/hulquene-roberto-ngola-66b849227" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:hulquene.ngola@gmail.com">Email</a></li>
+        <li><a href="docs/curriculo-hulquene-v1.pdf" download>CV</a></li>
+      </ul>
     </div>
   </footer>
 
-  <script>
-    // Partículas
-    (function() {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-        container.appendChild(particle);
-      }
-    })();
-
-    // Build marquee
-    (function() {
-      const words = ['PHP','Java','Laravel','Spring Boot','Docker','Python','Flutter','React','CI/CD','DevOps','MySQL','Tech Lead','Node.js','PostgreSQL'];
-      const track = document.getElementById('marquee-track');
-      let html = '';
-      for (let i = 0; i < 3; i++) {
-        words.forEach(w => { html += `<span class="mq-word">${w}</span><span class="mq-dot">✦</span>`; });
-      }
-      track.innerHTML = html;
-    })();
-
-    // Loader Premium
-    (function () {
-      const loader = document.getElementById('loader');
-      const bar = document.getElementById('loader-bar');
-      const pct = document.getElementById('loader-pct');
-      const status = document.querySelector('.loader-status');
-      let p = 0;
-      document.body.style.overflow = 'hidden';
-
-      const messages = ['Inicializando sistema...', 'Carregando recursos...', 'Preparando interface...', 'Quase pronto...'];
-      
-      const t = setInterval(() => {
-        p += Math.random() * 12 + 3;
-        if (p >= 100) {
-          p = 100;
-          clearInterval(t);
-          status.textContent = 'Pronto!';
-          setTimeout(() => {
-            loader.classList.add('hidden');
-            document.body.style.overflow = '';
-          }, 400);
-        }
-        bar.style.width = p + '%';
-        pct.textContent = Math.floor(p) + '%';
-        
-        const msgIndex = Math.min(Math.floor(p / 25), messages.length - 1);
-        status.textContent = messages[msgIndex];
-      }, 60);
-    })();
-
-    // Cursor Premium
-    (function () {
-      const dot = document.getElementById('cursor');
-      const ring = document.getElementById('cursor-ring');
-      if (!dot || !ring) return;
-
-      let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-      let rx = mx, ry = my;
-
-      document.addEventListener('mousemove', e => { 
-        mx = e.clientX; 
-        my = e.clientY; 
-      });
-
-      document.addEventListener('mousedown', () => {
-        dot.classList.add('clicking');
-        ring.classList.add('clicking');
-      });
-
-      document.addEventListener('mouseup', () => {
-        dot.classList.remove('clicking');
-        ring.classList.remove('clicking');
-      });
-
-      (function loop() {
-        dot.style.left = mx + 'px';
-        dot.style.top = my + 'px';
-        rx += (mx - rx) * 0.12;
-        ry += (my - ry) * 0.12;
-        ring.style.left = rx + 'px';
-        ring.style.top = ry + 'px';
-        requestAnimationFrame(loop);
-      })();
-
-      const hoverEls = document.querySelectorAll('a, button, .tag, .stack-cell, .proj-card, .channel, .stat-card, .hero-chip');
-      hoverEls.forEach(el => {
-        el.addEventListener('mouseenter', () => { 
-          dot.classList.add('hovering'); 
-          ring.classList.add('hovering'); 
-        });
-        el.addEventListener('mouseleave', () => { 
-          dot.classList.remove('hovering'); 
-          ring.classList.remove('hovering'); 
-        });
-      });
-
-      document.addEventListener('mouseleave', () => { 
-        dot.style.opacity = '0'; 
-        ring.style.opacity = '0'; 
-      });
-      
-      document.addEventListener('mouseenter', () => { 
-        dot.style.opacity = '1'; 
-        ring.style.opacity = '1'; 
-      });
-    })();
-
-    // Navbar
-    (function () {
-      const nav = document.getElementById('navbar');
-      const toggle = document.getElementById('nav-toggle');
-      const links = document.getElementById('nav-links');
-
-      window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 50);
-      }, { passive: true });
-
-      toggle.addEventListener('click', () => {
-        const open = toggle.classList.toggle('open');
-        links.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open);
-      });
-
-      links.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          toggle.classList.remove('open');
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-
-      document.addEventListener('click', e => {
-        if (!nav.contains(e.target)) {
-          toggle.classList.remove('open');
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    })();
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id === '#') return;
-        const target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top, behavior: 'smooth' });
-      });
-    });
-
-    // Scroll Reveal
-    (function () {
-      const els = document.querySelectorAll('.reveal');
-      if (!els.length) return;
-
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-      els.forEach(el => io.observe(el));
-    })();
-
-    // Skill Bars
-    (function () {
-      const containers = document.querySelectorAll('.bars');
-      if (!containers.length) return;
-
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.querySelectorAll('.bar-fill').forEach((fill, i) => {
-            setTimeout(() => {
-              fill.style.width = fill.dataset.w + '%';
-              fill.classList.add('animated');
-            }, i * 150);
-          });
-          io.unobserve(entry.target);
-        });
-      }, { threshold: 0.3 });
-
-      containers.forEach(c => io.observe(c));
-    })();
-
-    // Count Up
-    (function () {
-      const els = document.querySelectorAll('[data-count]');
-      if (!els.length) return;
-
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = parseInt(el.dataset.count, 10);
-          const suffix = el.dataset.suffix || '';
-          const dur = 2000;
-          const start = performance.now();
-
-          function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
-          
-          function step(now) {
-            const progress = Math.min((now - start) / dur, 1);
-            const current = Math.round(easeOut(progress) * target);
-            el.textContent = current + suffix;
-            el.style.opacity = 0.5 + (progress * 0.5);
-            
-            if (progress < 1) requestAnimationFrame(step);
-          }
-          
-          requestAnimationFrame(step);
-          io.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-
-      els.forEach(el => io.observe(el));
-    })();
-
-    // Active Nav Link
-    (function () {
-      const sections = document.querySelectorAll('section[id]');
-      const links = document.querySelectorAll('.nav-links a[href^="#"]');
-
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const id = '#' + entry.target.id;
-          links.forEach(a => {
-            a.style.color = a.getAttribute('href') === id ? 'var(--text)' : '';
-          });
-        });
-      }, { threshold: 0.4 });
-
-      sections.forEach(s => io.observe(s));
-    })();
-
-    // Parallax Glows
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const glows = document.querySelectorAll('.glow');
-      if (!glows.length) return;
-      let lastY = 0;
-      
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (Math.abs(y - lastY) < 2) return;
-        lastY = y;
-        glows.forEach((g, i) => {
-          const speed = i % 2 === 0 ? 0.04 : -0.03;
-          g.style.transform = `translateY(${y * speed}px)`;
-        });
-      }, { passive: true });
-    })();
-
-    // 3D Tilt Cards
-    (function () {
-      if (window.matchMedia('(hover: none)').matches) return;
-      document.querySelectorAll('.proj-card, .stat-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const cx = (e.clientX - r.left) / r.width - 0.5;
-          const cy = (e.clientY - r.top) / r.height - 0.5;
-          card.style.transform = `perspective(1000px) rotateX(${-cy * 8}deg) rotateY(${cx * 8}deg) translateY(-10px)`;
-        });
-        
-        card.addEventListener('mouseleave', () => { 
-          card.style.transform = ''; 
-        });
-      });
-    })();
-
-    // Magnetic Buttons
-    (function () {
-      if (window.matchMedia('(hover: none)').matches) return;
-      document.querySelectorAll('.btn-fill').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-          const r = btn.getBoundingClientRect();
-          const cx = e.clientX - r.left - r.width / 2;
-          const cy = e.clientY - r.top - r.height / 2;
-          btn.style.transform = `translate(${cx * 0.2}px, ${cy * 0.25}px) translateY(-3px)`;
-        });
-        
-        btn.addEventListener('mouseleave', () => { 
-          btn.style.transform = ''; 
-        });
-      });
-    })();
-
-    // Marquee
-    (function () {
-      const track = document.querySelector('.marquee-track');
-      if (!track) return;
-      let x = 0;
-      const speed = 0.4;
-
-      function getHalf() { return track.scrollWidth / 3; }
-
-      (function animate() {
-        x -= speed;
-        if (Math.abs(x) >= getHalf()) x = 0;
-        track.style.transform = `translateX(${x}px)`;
-        requestAnimationFrame(animate);
-      })();
-    })();
-
-   
-  </script>
-   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
 </html>
