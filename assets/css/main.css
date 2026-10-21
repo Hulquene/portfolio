@@ -1090,7 +1090,25 @@ em { font-style: normal; }
   background-clip: text;
   color: transparent;
 }
-.contact-sub { max-width: 48ch; margin-bottom: var(--sp-10); color: var(--text-2); font-size: var(--fs-md); line-height: 1.75; }
+.contact-sub { max-width: 48ch; margin-bottom: var(--sp-8); color: var(--text-2); font-size: var(--fs-md); line-height: 1.75; }
+
+.contact-meta { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.contact-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.contact-meta i { color: var(--accent-text); }
+
+.contact-panel { display: grid; gap: var(--sp-4); }
+.contact-panel-label { color: var(--text-3); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
 
 .channels { display: grid; gap: var(--sp-3); }
 .channel {
